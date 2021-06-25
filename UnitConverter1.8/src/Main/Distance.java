@@ -33,7 +33,7 @@ public class Distance {
 			}
 
 			if (select == 3) {
-				userIn.close();
+			//	userIn.close();
 				return;
 			}
 			System.out.println();
@@ -52,7 +52,7 @@ public class Distance {
 			 calc(select, number);
 
 		}
-		userIn.close();
+//		userIn.close();
 	}
 
 	protected void calc(int x, double y) {

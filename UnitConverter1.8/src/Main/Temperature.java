@@ -37,7 +37,7 @@ public class Temperature {
 			}
 
 			if (select == 7) {
-				userIn.close();
+//				userIn.close();
 				return;
 			}
 			// Accept number to convert as a double. If invalid, set to zero
@@ -58,7 +58,7 @@ public class Temperature {
 			calc(select, number);
 
 		}
-		userIn.close();
+//		userIn.close();
 	}
 
 	protected void calc(int x, double y) {

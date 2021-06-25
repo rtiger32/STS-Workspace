@@ -1,0 +1,14 @@
+Main method will init to roomManager
+RoomManager will create room objects
+room objects need to store name, short and long descriptions,
+	features, and what exits they have
+exits will follow 6DOF format
+RoomManager assigns rooms to a room array, and where the player starts.
+Player object will have to store what the current room is.
+Main uses collect method to manage user input
+Main uses print method to display content of current room object
+Main uses parse method to move the player
+Fixture defines elements in a room.
+
+Exits will be stored as an array of rooms, linked to the master room list from roomManager
+Store exits of each room as an int array
