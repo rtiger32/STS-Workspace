@@ -1,0 +1,94 @@
+package fixtures;
+
+public class Room extends Fixture {
+
+	private Room[] exits = new Room[6]; // Store the exits to a room by room object
+//	private Item[] inventory; // What items are in the room
+	private int locked = 0; // Is the room locked?
+
+	// Constructors
+	public Room(String name, String shortDescription, String longDescription) {
+		super(name, shortDescription, longDescription);
+	}
+
+	public Room() {
+		super();
+	}
+	
+
+	
+	// Set the exits of the room
+	public void setExits(Room a, Room b, Room c, Room d, Room e, Room f) {
+		exits[0] = a;
+		exits[1] = b;
+		exits[2] = c;
+		exits[3] = d;
+		exits[4] = e;
+		exits[5] = f;
+	}
+
+	// Find and display the room exits
+	public void getExits() {
+		System.out.println("");
+		if (exits[0] != null)
+			System.out.println("North: " + exits[0].getShort());
+		if (exits[1] != null)
+			System.out.println("South: " + exits[1].getShort());
+		if (exits[2] != null)
+			System.out.println("East: " + exits[2].getShort());
+		if (exits[3] != null)
+			System.out.println("West: " + exits[3].getShort());
+		if (exits[4] != null)
+			System.out.println("Up: " + exits[4].getShort());
+		if (exits[5] != null)
+			System.out.println("Down: " + exits[5].getShort());
+	}
+
+	// Get a specific exit
+	public Room getExit(String direction) {
+
+		switch (direction) {
+		case "north":
+			return exits[0];
+		case "south":
+			return exits[1];
+		case "east":
+			return exits[2];
+		case "west":
+			return exits[3];
+		case "up":
+			return exits[4];
+		case "down":
+			return exits[5];
+		default:
+			System.out.println("Sorry, I do not recognize that command \n");
+			return null;
+		}
+
+	}
+
+	// Is the room locked?
+	public int getLock() {
+		return locked;
+	}
+
+	// Lock the room
+	public void lock() {
+		locked = 1;
+	}
+	
+	public void breakLock() {
+		locked = -1;
+	}
+
+	// Change the lock state
+	public void switchLock() {
+		if (locked == 1) {
+			locked = 0;
+			System.out.println("The door is now unlocked\n");
+		} else {
+			locked = 1;
+			System.out.println("The door is now locked\n");
+		}
+	}
+}

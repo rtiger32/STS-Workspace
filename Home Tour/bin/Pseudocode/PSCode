@@ -12,3 +12,5 @@ Fixture defines elements in a room.
 
 Exits will be stored as an array of rooms, linked to the master room list from roomManager
 Store exits of each room as an int array
+
+there is a key in room three unlocking room six
