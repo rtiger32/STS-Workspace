@@ -50,7 +50,7 @@ public class RoomManagerMap {
 						+ " \\$$   \\$$  \\$$$$$$  \\$$  \\$$  \\$$  \\$$$$$$$          \\$$$$   \\$$$$$$   \\$$$$$$  \\$$      \r\n"
 						+ "                                                                                         ");
 		System.out.println("                       W E L C O M E   T O   M Y   H O M E   T O U R !             ");
-		System.out.println("\n Type HELP for a list of commands.");
+		System.out.println("\nType HELP for a list of commands.");
 	}
 
 	protected Room getStart() {
