@@ -24,7 +24,7 @@ public class Player {
 	protected void getInventory() {
 		System.out.println("You are carrying:\n");
 
-		if (carry == 0) System.out.println("Nothing \n\n");
+		if (carry == 0) System.out.println("Master House Key \n\n");
 		else {
 			for (int i = 0; i < carry; i++) {
 				System.out.println(inventory[i]);
