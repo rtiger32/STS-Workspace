@@ -15,8 +15,7 @@ public class Main {
 		Player player = new Player();
 		player.setCurrentRoom(init.getStart()); // Move the player to the starting point
 		
-		boolean i = true;
-		while (i) {
+		while (true) {
 			if (next) printRoom(player);
 			System.out.println("\nWhat would you like to do?");
 			String[] command = collectInput();
@@ -67,6 +66,7 @@ public class Main {
 
 		// Exit the program
 		case "quit":
+			System.out.println("But you havent paid me yet. Get back here!");
 			System.exit(0);
 
 			// Move between the rooms
