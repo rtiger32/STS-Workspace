@@ -8,6 +8,7 @@ import sun.print.resources.serviceui;
 public class Main {
 
 	static private Boolean next = true;
+	static private boolean broken = false; 
 	
 	public static void main(String[] args) {
 		RoomManagerMap init = new RoomManagerMap();
@@ -66,9 +67,13 @@ public class Main {
 
 		// Exit the program
 		case "quit":
-			System.out.println("But you havent paid me yet. Get back here!");
+			if (broken) {
+			System.out.println("But you havent paid me for damages yet. Get back here!");
 			System.exit(0);
-
+			} else { 
+				System.out.println("Have a nice day");
+				System.exit(0);
+			}
 			// Move between the rooms
 		case "go":
 			if (current.getLock(direction) == 1) {
@@ -95,6 +100,7 @@ public class Main {
 
 		// Try to kick down the door
 		case "kick":
+			broken = true;
 			next = false;
 			if (current.getLock(direction) == 0) System.out.println("\nWhy not use the doorknob like everyone else!\n");		
 			else {
