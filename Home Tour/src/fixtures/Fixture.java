@@ -6,6 +6,7 @@ public abstract class Fixture {
 	private String shortDescription;
 	private String longDescription;
 
+
 	protected Fixture(String name, String shortDescription, String longDescription) {
 		this.name = name;
 		this.shortDescription = shortDescription;
@@ -18,12 +19,29 @@ public abstract class Fixture {
 		this.longDescription = null;
 	}
 	
-	public void print() {
-		System.out.println(name + "\n");
-		System.out.println(longDescription + "\n");
+	protected String getName() {
+		return name;
 	}
-	
-	protected String getShort( ) {
+
+	protected void setName(String name) {
+		this.name = name;
+	}
+
+	protected String getShortDescription() {
 		return shortDescription;
 	}
+
+	protected void setShortDescription(String shortDescription) {
+		this.shortDescription = shortDescription;
+	}
+
+	protected String getLongDescription() {
+		return longDescription;
+	}
+
+	protected void setLongDescription(String longDescription) {
+		this.longDescription = longDescription;
+	}
+
+	protected abstract void print();
 }

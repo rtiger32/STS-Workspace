@@ -5,20 +5,27 @@ import fixtures.Room;
 
 public class Player {
 
-	Item[] inventory = new Item[4]; // What items you have
-	Room currentRoom; // Where the player is
-	int carry = 0; // How many items you have
+	private Item[] inventory = new Item[4]; // What items you have
+	private Room currentRoom; // Where the player is
+	private int carry = 0; // How many items you have
 
-	void currentRoom(Room currentRoom) {
+	protected void currentRoom(Room currentRoom) {
+		this.currentRoom = currentRoom;
+	}
+	
+	public Room getCurrentRoom() {
+		return currentRoom;
+	}
+
+	public void setCurrentRoom(Room currentRoom) {
 		this.currentRoom = currentRoom;
 	}
 
-	void getInventory() {
+	protected void getInventory() {
 		System.out.println("You are carrying:\n");
 
-		if (carry == 0) {
-			System.out.println("Nothing \n\n");
-		} else {
+		if (carry == 0) System.out.println("Nothing \n\n");
+		else {
 			for (int i = 0; i < carry; i++) {
 				System.out.println(inventory[i]);
 
@@ -26,16 +33,25 @@ public class Player {
 		}
 	}
 
-	void addItem(Item item) {
-		if (carry == 4) {
-			System.out.println("You cannot carry more items");
-		} else {
+	protected boolean move(Room nextRoom) {
+		if (nextRoom != null) {			
+			currentRoom = nextRoom;
+			return true;
+		} else 
+			return false;
+				
+	}
+		
+
+	protected void addItem(Item item) {
+		if (carry == 4) System.out.println("You cannot carry more items");
+		else {
 			inventory[carry] = item;
 			carry++;
 		}
 	}
 
-	void removeItem(Item item) {
+	protected void removeItem(Item item) {
 		if (carry == 0) {
 			System.out.println("You are not carrying anything");
 		} else {

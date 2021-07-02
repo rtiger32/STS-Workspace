@@ -11,7 +11,7 @@ public class RoomManager {
 	private Room[] rooms = new Room[6]; // Master list of rooms
 	private Room startingRoom; // The first room for the player
 
-	void init() {
+	protected void init() {
 		Room one = new Room("Entry", "Front Door", "The front door");
 		rooms[0] = one;
 
@@ -41,7 +41,7 @@ public class RoomManager {
 
 		startingRoom = rooms[0];
 	}
-	Room getStart() {
+	protected Room getStart() {
 		return startingRoom;
 	}
 }

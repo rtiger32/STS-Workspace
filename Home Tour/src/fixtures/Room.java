@@ -15,6 +15,36 @@ public class Room extends Fixture {
 		super();
 	}
 
+	protected void print() {
+		System.out.println(getName() + "\n");
+		System.out.println(getLongDescription() + "\n");
+	}
+	
+	public String getName() {
+		return getName();
+	}
+
+	public void setName(String name) {
+		this.setName(name);
+	}
+
+	public String getShortDescription() {
+		return getShortDescription();
+	}
+
+	public void setShortDescription(String shortDescription) {
+		this.setShortDescription(shortDescription);
+	}
+
+	public String getLongDescription() {
+		return getLongDescription();
+	}
+
+	public void setLongDescription(String longDescription) {
+		this.setLongDescription(longDescription);
+	}
+	
+
 	// Set the exits of the room
 	public void setExits(Room a, Room b, Room c, Room d, Room e, Room f) {
 		exits[0] = a;
@@ -25,21 +55,15 @@ public class Room extends Fixture {
 		exits[5] = f;
 	}
 
-	// Find and display the room exits
+	// Find and print out the room exits
 	public void getExits() {
 		System.out.println("");
-		if (exits[0] != null)
-			System.out.println("North: " + exits[0].getShort());
-		if (exits[1] != null)
-			System.out.println("South: " + exits[1].getShort());
-		if (exits[2] != null)
-			System.out.println("East: " + exits[2].getShort());
-		if (exits[3] != null)
-			System.out.println("West: " + exits[3].getShort());
-		if (exits[4] != null)
-			System.out.println("Up: " + exits[4].getShort());
-		if (exits[5] != null)
-			System.out.println("Down: " + exits[5].getShort());
+		if (exits[0] != null) System.out.println("North: " + exits[0].getShortDescription());
+		if (exits[1] != null) System.out.println("South: " + exits[1].getShortDescription());
+		if (exits[2] != null) System.out.println("East: " + exits[2].getShortDescription());
+		if (exits[3] != null) System.out.println("West: " + exits[3].getShortDescription());
+		if (exits[4] != null) System.out.println("Up: " + exits[4].getShortDescription());
+		if (exits[5] != null) System.out.println("Down: " + exits[5].getShortDescription());
 	}
 
 	// Get a specific exit
@@ -59,7 +83,7 @@ public class Room extends Fixture {
 		case "down":
 			return exits[5];
 		default:
-			System.out.println("gEX Sorry, I do not recognize that command \n");
+			//System.out.println("GE Sorry, I do not recognize that command \n");
 			return null;
 		}
 	}
@@ -74,8 +98,6 @@ public class Room extends Fixture {
 	}
 
 	// Is the room locked?
-	
-	
 	public int getLock(String direction) {
 		switch (direction) {
 		case "north":
@@ -91,12 +113,13 @@ public class Room extends Fixture {
 		case "down":
 			return locked[5];
 		default:
-			System.out.println("gLO Sorry, I do not recognize that command \n");
+			System.out.println("Sorry, I do not recognize that command \n");
 			return -1;
 
 		}
 	}
 
+	// Lock the door
 	public void lock(String direction, Room nextRoom) {
 		switch (direction) {
 		case "north":
@@ -124,11 +147,12 @@ public class Room extends Fixture {
 			locked[5] = 1;
 			break;
 		default:
-			System.out.println("Lo Sorry, I do not recognize that command \n");
+			System.out.println("Sorry, I do not recognize that command \n");
 			break;
 		}
 	}
 
+	// Unlock the door
 	public void unlock(String direction, Room nextRoom) {
 		switch (direction) {
 		case "north":
@@ -156,11 +180,12 @@ public class Room extends Fixture {
 			locked[5] = 0;
 			break;
 		default:
-			System.out.println("UL Sorry, I do not recognize that command \n");
+			System.out.println("Sorry, I do not recognize that command \n");
 			break;
 		}
 	}
 
+	// Break the door
 	public void breakLock(String direction, Room nextRoom) {
 		switch (direction) {
 		case "north":
@@ -188,7 +213,7 @@ public class Room extends Fixture {
 			locked[5] = -1;
 			break;
 		default:
-			System.out.println("BL Sorry, I do not recognize that command \n");
+			System.out.println("Sorry, I do not recognize that command \n");
 			break;
 		}
 

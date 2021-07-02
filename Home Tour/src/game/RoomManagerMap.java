@@ -9,7 +9,7 @@ public class RoomManagerMap {
 	private Map<String, Room> roomList = new HashMap<>();
 	private Room startingRoom;
 
-	void init() {
+	protected void init() {
 
 		Room one = new Room("Entry", "Front Door", "The front door");
 		Room two = new Room("Living Space", "An open space", "A Living area");
@@ -37,7 +37,7 @@ public class RoomManagerMap {
 		startingRoom = roomList.get("one");
 	}
 
-	Room getStart() {
+	protected Room getStart() {
 		return startingRoom;
 	}
 }
