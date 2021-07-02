@@ -16,9 +16,9 @@ public class RoomManagerMap {
 		Room three = new Room("Study", "Lots of books", "A desk and lots of bookshelves");
 		Room four = new Room("Kitchen", "Tempting scents...", "Pots and pans");
 		Room five = new Room("Upstairs", "Stairs", "Top of the stairs");
-		five.setLocks(1,0,0,0,0,0);
+		five.setLocks(1, 0, 0, 0, 0, 0);
 		Room six = new Room("Bedroom", "Strange noises...", "What are you doing here?!?");
-		six.setLocks(0,1,0,0,0,0);
+		six.setLocks(0, 1, 0, 0, 0, 0);
 
 		one.setExits(two, null, three, null, five, null);
 		two.setExits(four, one, null, null, null, null);
@@ -35,6 +35,21 @@ public class RoomManagerMap {
 		roomList.put("six", six);
 
 		startingRoom = roomList.get("one");
+		title();
+	}
+
+	private void title() {
+		System.out.println(" __    __                                            __                                   \r\n"
+						+ "|  \\  |  \\                                          |  \\                                  \r\n"
+						+ "| $$  | $$  ______   ______ ____    ______         _| $$_     ______   __    __   ______  \r\n"
+						+ "| $$__| $$ /      \\ |      \\    \\  /      \\       |   $$ \\   /      \\ |  \\  |  \\ /      \\ \r\n"
+						+ "| $$    $$|  $$$$$$\\| $$$$$$\\$$$$\\|  $$$$$$\\       \\$$$$$$  |  $$$$$$\\| $$  | $$|  $$$$$$\\\r\n"
+						+ "| $$$$$$$$| $$  | $$| $$ | $$ | $$| $$    $$        | $$ __ | $$  | $$| $$  | $$| $$   \\$$\r\n"
+						+ "| $$  | $$| $$__/ $$| $$ | $$ | $$| $$$$$$$$        | $$|  \\| $$__/ $$| $$__/ $$| $$      \r\n"
+						+ "| $$  | $$ \\$$    $$| $$ | $$ | $$ \\$$     \\         \\$$  $$ \\$$    $$ \\$$    $$| $$      \r\n"
+						+ " \\$$   \\$$  \\$$$$$$  \\$$  \\$$  \\$$  \\$$$$$$$          \\$$$$   \\$$$$$$   \\$$$$$$  \\$$      \r\n"
+						+ "                                                                                         ");
+		System.out.println("                       W E L C O M E   T O   M Y   H O M E   T O U R !             ");
 	}
 
 	protected Room getStart() {

@@ -19,27 +19,27 @@ public abstract class Fixture {
 		this.longDescription = null;
 	}
 	
-	protected String getName() {
+	public String getName() {
 		return name;
 	}
 
-	protected void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
-	protected String getShortDescription() {
+	public String getShortDescription() {
 		return shortDescription;
 	}
 
-	protected void setShortDescription(String shortDescription) {
+	public void setShortDescription(String shortDescription) {
 		this.shortDescription = shortDescription;
 	}
 
-	protected String getLongDescription() {
+	public String getLongDescription() {
 		return longDescription;
 	}
 
-	protected void setLongDescription(String longDescription) {
+	public void setLongDescription(String longDescription) {
 		this.longDescription = longDescription;
 	}
 

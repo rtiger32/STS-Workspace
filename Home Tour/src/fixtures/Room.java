@@ -15,36 +15,11 @@ public class Room extends Fixture {
 		super();
 	}
 
-	protected void print() {
+	public void print() {
 		System.out.println(getName() + "\n");
 		System.out.println(getLongDescription() + "\n");
 	}
 	
-	public String getName() {
-		return getName();
-	}
-
-	public void setName(String name) {
-		this.setName(name);
-	}
-
-	public String getShortDescription() {
-		return getShortDescription();
-	}
-
-	public void setShortDescription(String shortDescription) {
-		this.setShortDescription(shortDescription);
-	}
-
-	public String getLongDescription() {
-		return getLongDescription();
-	}
-
-	public void setLongDescription(String longDescription) {
-		this.setLongDescription(longDescription);
-	}
-	
-
 	// Set the exits of the room
 	public void setExits(Room a, Room b, Room c, Room d, Room e, Room f) {
 		exits[0] = a;

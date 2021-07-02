@@ -13,12 +13,12 @@ public class Main {
 		RoomManagerMap init = new RoomManagerMap();
 		init.init(); // Start the game and populate the rooms
 		Player player = new Player();
-		boolean i = true;
 		player.setCurrentRoom(init.getStart()); // Move the player to the starting point
 		
+		boolean i = true;
 		while (i) {
 			if (next) printRoom(player);
-			System.out.println("\n What would you like to do?");
+			System.out.println("\nWhat would you like to do?");
 			String[] command = collectInput();
 			parse(command, player);
 		}
@@ -27,7 +27,7 @@ public class Main {
 	// Display what is in the room
 	private static void printRoom(Player player) {
 		Room current = player.getCurrentRoom();
-		System.out.println(current.getName());
+		System.out.println("\n" +current.getName());
 		System.out.println(current.getLongDescription());
 		current.getExits();
 	}
