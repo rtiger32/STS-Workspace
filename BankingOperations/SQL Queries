@@ -1,0 +1,135 @@
+SQL
+https://www.sqlshack.com/an-overview-of-the-column-level-sql-server-encryption/
+
+
+Fields for the user table:
+First Name
+Last Name
+Username PK
+Email
+
+Table for bank
+
+Username FK
+AcctNum PK
+Balance
+
+Key table
+
+Username PK
+Password
+
+Setup:
+
+CREATE TABLE com_bank_users
+( 
+fName VARCHAR (64) NOT NULL,
+lName VARCHAR (64) NOT NULL,
+uName VARCHAR (10) PRIMARY KEY,
+eMail VARCHAR (320) NOT NULL UNIQ,
+exec INT(1) NOT NULL
+);
+
+CREATE TABLE com_bank_bank
+(
+uName VARCHAR (10) NOT NULL FOREIGN KEY,
+acctNum BIGINT (12) PRIMARY KEY,
+balance FLOAT (10,2) NOT NULL
+);
+
+CREATE TABLE com_bank_key
+(
+uName VARCHAR (10) PRIMARY KEY,
+passKey VARBINARY(MAX)
+);
+
+
+//***might not be needed...***
+USE com.bank.key;
+GO
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'RevatureRosebud';
+CREATE CERTIFICATE bank_key WITH SUBJECT = 'Protect the data';
+CREATE SYMMETRIC KEY SymKey_bank WITH ALGORITHM = AES_256 
+ENCRYPTION BY CERTIFICATE bank_key;
+
+@Test
+SELECT name KeyName, 
+    symmetric_key_id KeyID, 
+    key_length KeyLength, 
+    algorithm_desc KeyAlgorithm
+FROM sys.symmetric_keys;
+
+
+Signup: 
+
+SELECT uName 
+FROM com_bank_users 
+WHERE uName=<input>
+
+if null:
+
+SELECT COUNT(*)
+FROM com.bank.user
+
+INSERT INTO com.bank.user 
+VALUES <input>
+
+INSERT INTO com_bank_key 
+VALUES uName, PASSWORD('passKey')
+
+
+Signin:
+
+SELECT uName, passKey
+FROM com_bank_key
+WHERE uName=<input>
+AND passKey= PASSWORD('passKey')
+
+
+Check the account: 
+
+SELECT * 
+FROM com_bank_bank 
+WHERE uName=<input>
+
+
+Transfer money: 
+
+Check query
+
+for both accounts
+
+Calculate new balance on Java side
+
+UPDATE com_bank_bank 
+SET balance=<newvalue> 
+WHERE uName=
+for both accounts
+
+
+Remove a user from the database:
+
+DELETE FROM com_bank_bank, com_bank_users, com_bank_key
+WHERE uName=
+
+
+Create new account:
+
+INSERT INTO com_bank_bank
+VALUES <input>
+handle account number generation in java
+
+View any account:
+
+SELECT * 
+FROM com_bank_users
+FULL JOIN com_bank_.bank
+ON com_bank_users.uName = com_bank_bank.uName
+WHERE uName=
+
+
+
+Elevate permissions:
+
+SELECT *
+FROM com.bank.users

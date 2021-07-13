@@ -13,7 +13,6 @@ public class Converter {
 
 		// Repeat the code until the user exits the program
 		while (i == 1) {
-	//		Scanner userIn = new Scanner(System.in);
 			System.out.println("Unit Conversions");
 			System.out.println();
 			System.out.println("Select a conversion");

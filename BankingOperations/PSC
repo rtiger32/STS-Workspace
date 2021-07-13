@@ -1,0 +1,34 @@
+Index Verify vs database UN/PW
+
+Accounting
+If account does not exist, create it
+Anyone can make a new login
+employees open new banking accounts
+If account does exist, check vs PW before access
+
+Logged in
+
+View details on account as default
+Option to make deposits and withdraws
+Option for transfer
+
+exec
+
+get notified when a new account is created.
+Master login key to any account
+Key to access the log files
+
+
+Anyone can create an account, but a 
+	customer needs the help of an employee to make a new account.
+	
+exec will have three levels 
+0 - no auth
+1 - normal auth
+2 - superuser
+
+
+
+Try to figure out Cipher java class
+
+
