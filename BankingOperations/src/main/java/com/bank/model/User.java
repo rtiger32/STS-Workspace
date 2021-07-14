@@ -8,7 +8,8 @@ public class User {
 	private String lName;
 	private String uName;
 	private String password;
-	private boolean exec;
+	private String eMail;
+	private int exec;
 	
 	public User() {
 		super();
@@ -45,11 +46,11 @@ public class User {
 		this.password = password;
 	}
 
-	public boolean isExec() {
+	public int getExec() {
 		return exec;
 	}
 
-	public void setExec(boolean exec) {
+	public void setExec(int exec) {
 		this.exec = exec;
 	}
 
@@ -63,6 +64,14 @@ public class User {
 	public String toString() {
 		return "User [fName=" + fName + ", lName=" + lName + ", uName=" + uName + ", password=" + password + ", exec="
 				+ exec + "]";
+	}
+
+	public String geteMail() {
+		return eMail;
+	}
+
+	public void seteMail(String eMail) {
+		this.eMail = eMail;
 	}
 
 }
