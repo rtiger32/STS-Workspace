@@ -8,19 +8,31 @@ public class User {
 	private String lName;
 	private String uName;
 	private String password;
-	private String eMail;
+	private String email;
 	private int exec;
 	
 	public User() {
 		super();
 	}
 	
-	public User(String fName, String lName, String password) {
+	public User(String fName, String lName, String password, String email) {
 		this.fName = fName;
 		this.lName = lName;
 		this.password = password;
 		this.uName = fName.charAt(0) + lName + (new Random().nextInt(9000)+1000);
+		this.exec = 0;
+		this.setEmail(email);
 	}
+	
+	public User(String fName, String lName, String password, String uname, int exec, String email) {
+		this.fName = fName;
+		this.lName = lName;
+		this.password = password;
+		this.uName = uname;
+		this.exec = exec;
+		this.setEmail(email);
+	}
+	
 
 	public String getfName() {
 		return fName;
@@ -66,12 +78,16 @@ public class User {
 				+ exec + "]";
 	}
 
-	public String geteMail() {
-		return eMail;
+	public void setuName(String uName) {
+		this.uName = uName;
 	}
 
-	public void seteMail(String eMail) {
-		this.eMail = eMail;
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }
