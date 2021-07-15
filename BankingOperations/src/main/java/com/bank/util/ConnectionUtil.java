@@ -14,7 +14,8 @@ public class ConnectionUtil {
 	
 	private ConnectionUtil() {
 	
-}
+	}
+	
 	public static synchronized ConnectionUtil getConnectionUtil() {
 		if(cu == null) {
 			return new ConnectionUtil();
@@ -33,9 +34,8 @@ public class ConnectionUtil {
 			prop.load(is);
 			url = (String)prop.getProperty("url");
 			username = (String)prop.getProperty("username");
-			password = (String)prop.getProperty("password");
-			
-		} catch (IOException e) {
+			password = (String)prop.getProperty("password");		
+		} catch(IOException e) {
 			e.printStackTrace();
 		}
 		
@@ -43,9 +43,10 @@ public class ConnectionUtil {
 		try {
 			con = DriverManager.getConnection(url, username, password);
 			return con;
-		} catch (SQLException e) {
+		} catch(SQLException e) {
 			e.printStackTrace();
 		}
+		
 		return null;
 	}
 	

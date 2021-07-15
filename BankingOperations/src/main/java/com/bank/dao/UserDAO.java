@@ -24,6 +24,6 @@ public interface UserDAO {
 
 	public boolean setExec(User user);
 
-	public boolean viewAcct(User user);
+	public List<?> viewAcct(User user);
 
 }

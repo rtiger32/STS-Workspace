@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.bank.model.Account;
 import com.bank.model.User;
 import com.bank.util.DAOUtil;
 
@@ -117,28 +118,46 @@ public class UserDAOImpl implements UserDAO {
 		return false;
 	}
 
-	public boolean viewAcct(User user) {
-		// TODO Auto-generated method stub
-		return false;
+	public List<Account> viewAcct(User user) {
+
+
+		List<Account> acct = new ArrayList<>();
+		try {
+			connection = DAOUtil.getConnection();
+			String sql = "SELECT * FROM com_bank_bank WHERE uname=?";
+			stmt = connection.prepareStatement(sql);
+
+			stmt.setString(1, user.getuName());
+
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				Account add = new Account();
+				add.setAcctNum(rs.getString(2));
+				add.setBalance(rs.getDouble(3));
+				acct.add(add);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return acct;
 	}
 
 	public User getUser(String uname) {
 		// TODO Auto-generated method stub
-		
+
 		User user = new User();
-		
+
 		try {
 			connection = DAOUtil.getConnection();
-			String sql = "SELECT * FROM com_bank_users "
-					+ "FULL JOIN com_bank_key "
-					+ "ON com_bank_users.uname = com_bank_key.uName"
-					+ "WHERE com_bank_users.uname=?";
+			String sql = "SELECT * FROM com_bank_users FULL JOIN com_bank_key ON com_bank_users.uname=com_bank_key.uName WHERE com_bank_users.uname=?";
 			stmt = connection.prepareStatement(sql);
-			
+
 			stmt.setString(1, uname);
-			
+
 			ResultSet rs = stmt.executeQuery();
-			
+
 			while (rs.next()) {
 				user.setfName(rs.getString(1));
 				user.setlName(rs.getString(2));
@@ -148,10 +167,10 @@ public class UserDAOImpl implements UserDAO {
 				user.setPassword(rs.getString(7));
 			}
 			return user;
-		} catch(SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 		return null;
 	}
 

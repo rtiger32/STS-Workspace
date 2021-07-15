@@ -9,9 +9,9 @@ package com.bank.util;
 	 */
 	public class DAOUtil {
 
-		private static final String CONNECTION_USERNAME = "postgres";
+		private static final String CONNECTION_USERNAME = "bankuser";
 		private static final String CONNECTION_PASSWORD = "password";
-		private static final String URL = "jdbc:postgresql://localhost:5432/PubHub";
+		private static final String URL = "jdbc:postgresql://revaturejava0621.cmtwcjnphlh8.us-east-1.rds.amazonaws.com:5432/bankdb";
 		private static Connection connection;
 		
 		public static synchronized Connection getConnection() throws SQLException {
