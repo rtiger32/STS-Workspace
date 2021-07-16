@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 import com.bank.dao.UserDAOImpl;
+import com.bank.logging.Logging;
 import com.bank.model.User;
 
 public class NewAcct {
@@ -17,6 +18,7 @@ public class NewAcct {
 			UserDAOImpl udao = new UserDAOImpl();
 			Scanner in = new Scanner(System.in);
 			System.out.println("\nThank you for choosing our bank.\nWhat is your first name?");
+			Logging.logger.debug("Creating a new user");
 			String fName = in.nextLine().toLowerCase();
 			System.out.println("\nWhat is your Last name?");
 			String lName = in.nextLine().toLowerCase();
@@ -38,6 +40,7 @@ public class NewAcct {
 			User u = new User(fName, lName, password, uName, 0, email);
 			udao.addUser(u);
 			udao.addUser2(u);
+			Logging.logger.info("New user: " + uName);
 			//System.out.println(u);
 		}
 	}

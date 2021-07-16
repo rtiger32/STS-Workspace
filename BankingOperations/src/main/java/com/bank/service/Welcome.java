@@ -41,6 +41,7 @@ public class Welcome {
 						return signin; // if the username and password is valid, return the user object
 					} else {
 						System.out.println("Sorry, Try again");
+						Logging.logger.debug("User "+ choice + " failed to authenticate");
 					}
 				}
 				Logging.logger.warn("A user did not authenticate");
@@ -60,6 +61,7 @@ public class Welcome {
 				//newUser();
 				break;
 			case -42:// quit the program
+				Logging.logger.warn("The program was terminated");
 				System.exit(0);
 			default:
 				break;

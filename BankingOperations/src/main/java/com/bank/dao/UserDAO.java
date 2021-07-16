@@ -18,7 +18,7 @@ public interface UserDAO {
 
 	public boolean removeUserByUsername(String uname);
 
-	public boolean addBalance(float acctBal);
+	public boolean addBalance(double bal, String acct);
 
 	public boolean resetPass();
 

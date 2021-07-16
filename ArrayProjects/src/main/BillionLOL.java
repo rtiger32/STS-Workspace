@@ -6,7 +6,7 @@ public class BillionLOL {
 		
 	
 	
-	String lol = "LOL ";
+	String lol = "LOL  ";
 	String lol1 = (lol + lol + lol + lol + lol +
 			lol + lol + lol + lol + lol);
 	String lol2 = (lol1 + lol1 + lol1 + lol1 + lol1 +

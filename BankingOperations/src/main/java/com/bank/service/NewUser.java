@@ -20,17 +20,29 @@ public class NewUser {
 			String fName = in.nextLine().toLowerCase();
 			System.out.println("\nWhat is your Last name?");
 			String lName = in.nextLine().toLowerCase();
+			String email;
+			while (true) {
 			System.out.println("\nEnter your email address.");
-			String email = in.nextLine().toLowerCase(); // check to see if username exists
+			email = in.nextLine().toLowerCase(); 
+			System.out.println(udao.checkEmail(email));
+			if (udao.checkEmail(email)) {
+				System.out.println("A user with that email is already registered\n");
+			} else {
+				break;
+			}
+			}
+			
+			
+			// check to see if username exists
 			String uName = "";
 			String clName = "";
 			if (lName.length() < 5)
 				clName = lName;
 			else
 				clName = lName.substring(0, 4);
-			System.out.println(clName);
+			//System.out.println(clName);
 			uName = fName.charAt(0) + clName + (new Random().nextInt(9000) + 1000);
-			// System.out.println(udao.checkUser(uName));
+			//System.out.println(udao.checkUser(uName));
 
 			System.out.println("Create a Password (Case Sensitive):");
 			String password = in.nextLine();
