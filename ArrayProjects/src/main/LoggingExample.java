@@ -4,9 +4,9 @@ import java.util.logging.Logger;
 public class LoggingExample {
 	public static void main(String[] args) {
 	
-		Logger logging = new Logger(null);
-	Logger.warn("");
+	String testcut = "asdfghjkl";
+	String trim = testcut.substring(0, 4);
+	System.out.println(trim);
 	
+	}
 }
-}
-log4j properties

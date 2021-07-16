@@ -74,8 +74,8 @@ public class User {
 	
 	@Override
 	public String toString() {
-		return "User [fName=" + fName + ", lName=" + lName + ", uName=" + uName + ", password=" + password + ", exec="
-				+ exec + "]";
+		return "User [fName=" + fName + ", lName=" + lName + ", uName=" + uName + ", password=" + password + ", email="
+				+ email + ", exec=" + exec + "]";
 	}
 
 	public void setuName(String uName) {

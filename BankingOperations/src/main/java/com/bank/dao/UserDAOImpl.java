@@ -21,7 +21,7 @@ public class UserDAOImpl implements UserDAO {
 
 		try {
 			connection = DAOUtil.getConnection();
-			String sql = "INSERT INTO com_bank_user VALUES (?,?,?,?,?)";
+			String sql = "INSERT INTO com_bank_users VALUES (?,?,?,?,?)";
 			stmt = connection.prepareStatement(sql);
 
 			stmt.setString(1, user.getfName());
@@ -82,9 +82,9 @@ public class UserDAOImpl implements UserDAO {
 
 		try {
 			connection = DAOUtil.getConnection();
-			String sql = "DELETE com.bank.user, com_bank_bank, com_bank_key FROM com.bank.user "
-					+ "INNER JOIN com_bank_bank ON com_bank_bank.u_name = com_bank_user.u_name "
-					+ "INNER JOIN com_bank_key ON com_bank_key.u_name = com.bank.user.u_name " + "WHERE u_name = ?";
+			String sql = "DELETE com.bank.users, com_bank_bank, com_bank_key FROM com.bank.users "
+					+ "INNER JOIN com_bank_bank ON com_bank_bank.u_name = com_bank_users.u_name "
+					+ "INNER JOIN com_bank_key ON com_bank_key.u_name = com.bank.users.u_name " + "WHERE u_name = ?";
 			stmt = connection.prepareStatement(sql);
 
 			stmt.setString(1, uName);
@@ -103,6 +103,25 @@ public class UserDAOImpl implements UserDAO {
 		return false;
 	}
 
+	public String checkBalance(String acctNum) {
+		try {
+			connection = DAOUtil.getConnection();
+			String sql = "SELECT balance FROM com_bank_bank WHERE acctnum=?";
+			stmt = connection.prepareStatement(sql);
+
+			stmt.setString(1, acctNum);
+
+			ResultSet rs = stmt.executeQuery();
+
+			return rs.getString(1);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+		return null;
+	}
+
 	public boolean addBalance(float acctBal) {
 		// TODO Auto-generated method stub
 		return false;
@@ -119,7 +138,6 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	public List<Account> viewAcct(User user) {
-
 
 		List<Account> acct = new ArrayList<>();
 		try {
@@ -172,6 +190,25 @@ public class UserDAOImpl implements UserDAO {
 		}
 
 		return null;
+	}
+
+	public boolean checkUser(String uName) {
+		try {
+			connection = DAOUtil.getConnection();
+			String sql = "SELECT uname FROM com_bank_users WHERE uname=?";
+			stmt = connection.prepareStatement(sql);
+
+			stmt.setString(1, uName);
+
+			if (stmt.executeUpdate() == 0)
+				return true;
+			else
+				return false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

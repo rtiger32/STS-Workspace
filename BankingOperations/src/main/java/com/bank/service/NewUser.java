@@ -6,9 +6,9 @@ import java.util.Scanner;
 import com.bank.dao.UserDAOImpl;
 import com.bank.model.User;
 
-public class NewAcct {
+public class NewUser {
 
-	public NewAcct () {
+	public NewUser() {
 		
 	}
 
@@ -40,6 +40,4 @@ public class NewAcct {
 			udao.addUser2(u);
 			//System.out.println(u);
 		}
-	}
-	
-
+}

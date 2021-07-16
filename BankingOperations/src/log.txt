@@ -1,0 +1,4 @@
+2021-07-15 20:17:12 INFO  Logging:27 - Employee user0000 has logged in
+2021-07-15 20:17:15 INFO  Logging:72 - user0000has logged out
+2021-07-15 20:26:28 INFO  Logging:28 - Employee user0000 has logged in
+2021-07-15 20:26:30 INFO  Logging:73 - user0000has logged out
