@@ -62,6 +62,8 @@ public class Accounting {
 			Logging.logger.info(user.getuName() + " has no active accounts");
 			System.out.println("You have no accounts with our bank");
 		} else {
+			while (true) {
+			accounts = udao.viewAcct(user); //update the accounts list
 			Account u = new Account();
 			for (int i = 0; i < accounts.size(); i++) {
 				u = accounts.get(i);
@@ -69,7 +71,7 @@ public class Accounting {
 				System.out.println("\nAccount number: " + u.getAcctNum() + "\nBalance: " + u.getBalance());
 			}
 			int select;
-			while (true) {
+		
 				System.out.println("\nWhat would you like to do:\n1) Make a deposit"
 						+ "\n2) Withdraw funds\n3) Transfer funds to another account" + "\n4) Logout");
 

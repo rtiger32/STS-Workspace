@@ -28,9 +28,12 @@ public class Deposit {
 	
 	public void makeDeposit() {
 		
-		System.out.println(udao.checkBalance(check));
+		double bal = udao.checkBalance(check);
+		System.out.println("You have $" +bal);
 		System.out.println("How much would you like to deposit?");
-		double bal = in.nextDouble();
+		double add = in.nextDouble();
+		add = (bal + add);
+		udao.addBalance(add, check);
 		
 	}
 	

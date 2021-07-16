@@ -30,3 +30,19 @@
 2021-07-16 16:17:26 INFO  Logging:17 - Program has started
 2021-07-16 16:17:34 INFO  Logging:31 - Employee user0000 has logged in
 2021-07-16 16:18:22 INFO  Logging:17 - Program has started
+2021-07-16 16:18:29 INFO  Logging:31 - Employee user0000 has logged in
+2021-07-16 16:29:56 INFO  Logging:17 - Program has started
+2021-07-16 16:30:05 INFO  Logging:31 - Employee user0000 has logged in
+2021-07-16 16:31:21 INFO  Logging:17 - Program has started
+2021-07-16 16:31:28 INFO  Logging:31 - Employee user0000 has logged in
+2021-07-16 16:42:21 INFO  Logging:17 - Program has started
+2021-07-16 16:42:29 INFO  Logging:31 - Employee user0000 has logged in
+2021-07-16 16:43:17 INFO  Logging:17 - Program has started
+2021-07-16 16:43:22 DEBUG Logging:44 - User user0000 failed to authenticate
+2021-07-16 16:43:29 INFO  Logging:31 - Employee user0000 has logged in
+2021-07-16 16:46:24 INFO  Logging:17 - Program has started
+2021-07-16 16:46:33 INFO  Logging:31 - Employee user0000 has logged in
+2021-07-16 16:51:52 INFO  Logging:17 - Program has started
+2021-07-16 16:52:02 INFO  Logging:31 - Employee user0000 has logged in
+2021-07-16 16:57:56 INFO  Logging:108 - user0000has logged out
+2021-07-16 16:58:02 WARN  Logging:64 - The program was terminated

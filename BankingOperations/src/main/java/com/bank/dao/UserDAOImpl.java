@@ -120,8 +120,8 @@ public class UserDAOImpl implements UserDAO {
 				Logging.logger.error(acctNum + "has multiple entries in the database");
 			while (rs.next()) {
 //				add = new Account();
-				add.setAcctNum(rs.getString(2));
-				add.setBalance(rs.getDouble(3));
+				add.setBalance(rs.getDouble(1));
+				System.out.println(add.getBalance());
 //				acct.add(add);
 			}
 			return add.getBalance();
