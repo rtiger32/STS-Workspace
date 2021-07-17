@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 import com.bank.dao.UserDAOImpl;
+import com.bank.logging.Logging;
 import com.bank.model.User;
 
 public class NewUser {
@@ -50,6 +51,12 @@ public class NewUser {
 			User u = new User(fName, lName, password, uName, 0, email);
 			udao.addUser(u);
 			udao.addUser2(u);
+			Logging.logger.info("New user " + uName + " Created.");
+			try {
+				Thread.sleep(10000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 			//System.out.println(u);
 		}
 }

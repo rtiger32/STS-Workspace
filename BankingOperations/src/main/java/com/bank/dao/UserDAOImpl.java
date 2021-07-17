@@ -14,8 +14,8 @@ import com.bank.util.DAOUtil;
 
 public class UserDAOImpl implements UserDAO {
 
-	Connection connection = null;
-	PreparedStatement stmt = null;
+	private Connection connection = null;
+	private PreparedStatement stmt = null;
 
 	public boolean addUser(User user) {
 		// This adds a new user to the user table
@@ -78,17 +78,55 @@ public class UserDAOImpl implements UserDAO {
 		return false;
 	}
 
+	
+	public boolean addUser3(Account newAcct) {
+		// This adds a new user to the user table
+
+		try {
+			connection = DAOUtil.getConnection();
+			String sql = "INSERT INTO com_bank_bank VALUES (?,?,?)";
+			stmt = connection.prepareStatement(sql);
+
+			stmt.setString(1, newAcct.getuName());
+			stmt.setString(2, newAcct.getAcctNum());
+			stmt.setDouble(3, newAcct.getBalance());
+
+
+			if (stmt.executeUpdate() != 0)
+				return true;
+			else
+				return false;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+
+			}
+		}
+		return false;
+	}
+	
+	
+	
+	
 	public boolean removeUserByUsername(String uName) {
 		// not done
 
 		try {
 			connection = DAOUtil.getConnection();
-			String sql = "DELETE com.bank.users, com_bank_bank, com_bank_key FROM com.bank.users "
-					+ "INNER JOIN com_bank_bank ON com_bank_bank.u_name = com_bank_users.u_name "
-					+ "INNER JOIN com_bank_key ON com_bank_key.u_name = com.bank.users.u_name " + "WHERE u_name = ?";
+			String sql = "DELETE FROM com_bank_key where uname = ?";
 			stmt = connection.prepareStatement(sql);
 
 			stmt.setString(1, uName);
+
+			if (stmt.executeUpdate() != 0)
+				return true;
+			else
+				return false;
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -105,7 +143,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	public double checkBalance(String acctNum) {
-		//Find the balance of a specific account
+		// Find the balance of a specific account
 		try {
 			connection = DAOUtil.getConnection();
 			String sql = "SELECT balance FROM com_bank_bank WHERE acctnum=?";
@@ -125,16 +163,22 @@ public class UserDAOImpl implements UserDAO {
 //				acct.add(add);
 			}
 			return add.getBalance();
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
 
+			}
 		}
 		return 0.0;
 	}
 
 	public boolean addBalance(double bal, String acct) {
-		
+
 		try {
 			connection = DAOUtil.getConnection();
 			String sql = "UPDATE com_bank_bank SET balance=? WHERE acctnum=?";
@@ -150,12 +194,40 @@ public class UserDAOImpl implements UserDAO {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return false;
 	}
 
-	public boolean resetPass() {
-		// TODO Auto-generated method stub
+	public boolean resetPass(String uname, String password) {
+
+		try {
+			connection = DAOUtil.getConnection();
+			String sql = "UPDATE com_bank_key SET passkey=? WHERE uname=?";
+			stmt = connection.prepareStatement(sql);
+
+			stmt.setString(1, password);
+			stmt.setString(2, uname);
+
+			if (stmt.executeUpdate() != 0)
+				return true;
+			else
+				return false;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 		return false;
 	}
 
@@ -178,6 +250,7 @@ public class UserDAOImpl implements UserDAO {
 
 			while (rs.next()) {
 				Account add = new Account();
+				add.setuName(rs.getString(1));
 				add.setAcctNum(rs.getString(2));
 				add.setBalance(rs.getDouble(3));
 				acct.add(add);
@@ -185,6 +258,43 @@ public class UserDAOImpl implements UserDAO {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return acct;
+	}
+
+	public List<Account> viewAcctbyNumber(String acctnum) {
+
+		List<Account> acct = new ArrayList<>();
+		try {
+			connection = DAOUtil.getConnection();
+			String sql = "SELECT * FROM com_bank_bank WHERE acctnum=?";
+			stmt = connection.prepareStatement(sql);
+
+			stmt.setString(1, acctnum);
+
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				Account add = new Account();
+				add.setAcctNum(rs.getString(2));
+				add.setBalance(rs.getDouble(3));
+				acct.add(add);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return acct;
 	}
@@ -214,8 +324,13 @@ public class UserDAOImpl implements UserDAO {
 			return user;
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
-
 		return null;
 	}
 
@@ -232,11 +347,17 @@ public class UserDAOImpl implements UserDAO {
 			else
 				return false;
 		} catch (Exception e) {
-			//e.printStackTrace();
+			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return false;
 	}
-	
+
 	public boolean checkEmail(String uName) {
 		try {
 			connection = DAOUtil.getConnection();
@@ -250,9 +371,34 @@ public class UserDAOImpl implements UserDAO {
 			else
 				return false;
 		} catch (Exception e) {
-			//e.printStackTrace();
+			// e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return false;
 	}
 
+	public int countAccounts() {
+		try {
+			connection = DAOUtil.getConnection();
+			String sql = "SELECT * FROM com_bank_bank";
+			stmt = connection.prepareStatement(sql);
+
+			ResultSet rs = stmt.executeQuery();
+			List<Account> ls = new ArrayList<Account>();
+			while (rs.next()) {
+				Account user = new Account();
+				ls.add(user);
+			}
+			return ls.size();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
 }

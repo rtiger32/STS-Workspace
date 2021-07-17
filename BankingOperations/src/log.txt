@@ -46,3 +46,94 @@
 2021-07-16 16:52:02 INFO  Logging:31 - Employee user0000 has logged in
 2021-07-16 16:57:56 INFO  Logging:108 - user0000has logged out
 2021-07-16 16:58:02 WARN  Logging:64 - The program was terminated
+2021-07-17 11:04:52 INFO  Logging:17 - Program has started
+2021-07-17 11:05:43 INFO  Logging:17 - Program has started
+2021-07-17 11:05:51 INFO  Logging:29 - Employee user0000 has logged in
+2021-07-17 11:10:49 INFO  Logging:17 - Program has started
+2021-07-17 11:10:55 INFO  Logging:29 - Employee user0000 has logged in
+2021-07-17 11:12:55 INFO  Logging:17 - Program has started
+2021-07-17 11:13:05 INFO  Logging:29 - Employee user0000 has logged in
+2021-07-17 11:17:44 INFO  Logging:17 - Program has started
+2021-07-17 11:17:51 INFO  Logging:29 - Employee user0000 has logged in
+2021-07-17 11:21:03 INFO  Logging:17 - Program has started
+2021-07-17 11:21:11 INFO  Logging:29 - Employee user0000 has logged in
+2021-07-17 11:22:07 INFO  Logging:17 - Program has started
+2021-07-17 11:22:16 INFO  Logging:29 - Employee user0000 has logged in
+2021-07-17 11:23:06 INFO  Logging:108 - user0000has logged out
+2021-07-17 11:28:41 INFO  Logging:17 - Program has started
+2021-07-17 11:28:52 INFO  Logging:29 - Employee user0000 has logged in
+2021-07-17 11:33:51 INFO  Logging:108 - user0000has logged out
+2021-07-17 11:34:43 INFO  Logging:17 - Program has started
+2021-07-17 11:34:51 INFO  Logging:29 - Employee user0000 has logged in
+2021-07-17 11:35:24 INFO  Logging:17 - Program has started
+2021-07-17 11:35:31 INFO  Logging:29 - Employee user0000 has logged in
+2021-07-17 11:35:41 INFO  Logging:28 - null has deposited 2.0 into account 1000 0000 0000. The new balance is: $41.21
+2021-07-17 12:52:10 INFO  Logging:17 - Program has started
+2021-07-17 12:52:20 INFO  Logging:28 - Employee user0000 has logged in
+2021-07-17 12:52:37 INFO  Logging:49 - null has deposited 1.0 into account 1000 0000 0000
+2021-07-17 12:52:37 INFO  Logging:50 - . The new balance for 1000 0000 0000 is: $43.21
+2021-07-17 13:00:28 INFO  Logging:93 - null has withdrawn 1.0 from account 1000 0000 0001
+2021-07-17 13:00:28 WARN  Logging:97 - 1000 0000 0001 has been overdrawn
+2021-07-17 13:00:28 INFO  Logging:99 - The new balance is: $0.5
+2021-07-17 13:00:28 INFO  Logging:49 - null has deposited 1.0 into account 1000 0000 0002
+2021-07-17 13:00:28 INFO  Logging:50 - . The new balance for 1000 0000 0002 is: $0.8
+2021-07-17 13:06:15 INFO  Logging:110 - user0000has logged out
+2021-07-17 13:13:40 INFO  Logging:17 - Program has started
+2021-07-17 13:14:38 INFO  Logging:17 - Program has started
+2021-07-17 13:14:51 INFO  Logging:17 - Program has started
+2021-07-17 13:15:09 INFO  Logging:17 - Program has started
+2021-07-17 13:16:11 INFO  Logging:17 - Program has started
+2021-07-17 13:16:20 INFO  Logging:17 - Program has started
+2021-07-17 13:16:32 INFO  Logging:17 - Program has started
+2021-07-17 13:16:51 INFO  Logging:17 - Program has started
+2021-07-17 13:17:04 INFO  Logging:17 - Program has started
+2021-07-17 13:17:13 INFO  Logging:17 - Program has started
+2021-07-17 13:17:43 INFO  Logging:17 - Program has started
+2021-07-17 13:18:01 INFO  Logging:17 - Program has started
+2021-07-17 13:18:18 INFO  Logging:17 - Program has started
+2021-07-17 13:18:31 INFO  Logging:17 - Program has started
+2021-07-17 13:18:50 INFO  Logging:17 - Program has started
+2021-07-17 13:19:06 INFO  Logging:17 - Program has started
+2021-07-17 13:19:35 INFO  Logging:17 - Program has started
+2021-07-17 13:19:57 INFO  Logging:17 - Program has started
+2021-07-17 13:20:24 INFO  Logging:17 - Program has started
+2021-07-17 13:20:39 INFO  Logging:17 - Program has started
+2021-07-17 13:20:55 INFO  Logging:17 - Program has started
+2021-07-17 13:21:31 INFO  Logging:17 - Program has started
+2021-07-17 13:22:14 INFO  Logging:17 - Program has started
+2021-07-17 13:22:38 INFO  Logging:17 - Program has started
+2021-07-17 13:22:52 INFO  Logging:17 - Program has started
+2021-07-17 13:23:15 INFO  Logging:17 - Program has started
+2021-07-17 13:23:47 INFO  Logging:17 - Program has started
+2021-07-17 13:24:05 INFO  Logging:17 - Program has started
+2021-07-17 13:24:29 INFO  Logging:17 - Program has started
+2021-07-17 13:24:48 INFO  Logging:17 - Program has started
+2021-07-17 13:25:03 INFO  Logging:17 - Program has started
+2021-07-17 13:25:31 INFO  Logging:17 - Program has started
+2021-07-17 13:25:48 INFO  Logging:17 - Program has started
+2021-07-17 13:26:53 INFO  Logging:17 - Program has started
+2021-07-17 13:27:42 INFO  Logging:17 - Program has started
+2021-07-17 13:27:52 INFO  Logging:17 - Program has started
+2021-07-17 13:29:09 INFO  Logging:17 - Program has started
+2021-07-17 13:29:37 INFO  Logging:17 - Program has started
+2021-07-17 13:29:57 INFO  Logging:17 - Program has started
+2021-07-17 13:30:14 INFO  Logging:17 - Program has started
+2021-07-17 18:35:11 INFO  Logging:17 - Program has started
+2021-07-17 18:35:33 INFO  Logging:28 - Employee user0000 has logged in
+2021-07-17 18:36:39 INFO  Logging:49 - user0000 has deposited $100.0 into account 1000 0000 0001
+2021-07-17 18:36:39 INFO  Logging:50 - . The new balance for 1000 0000 0001 is: $-25.5
+2021-07-17 18:40:37 INFO  Logging:17 - Program has started
+2021-07-17 18:40:46 INFO  Logging:28 - Employee user0000 has logged in
+2021-07-17 18:52:15 INFO  Logging:17 - Program has started
+2021-07-17 18:52:23 INFO  Logging:28 - Employee user0000 has logged in
+2021-07-17 18:52:55 INFO  Logging:17 - Program has started
+2021-07-17 18:53:02 INFO  Logging:28 - Employee user0000 has logged in
+2021-07-17 18:53:43 INFO  Logging:17 - Program has started
+2021-07-17 18:53:52 INFO  Logging:28 - Employee user0000 has logged in
+2021-07-17 18:56:25 INFO  Logging:114 - user0000has logged out
+2021-07-17 18:56:52 INFO  Logging:54 - New user tuser1992 Created.
+2021-07-17 19:25:04 INFO  Logging:17 - Program has started
+2021-07-17 19:25:18 INFO  Logging:17 - Program has started
+2021-07-17 19:25:52 INFO  Logging:17 - Program has started
+2021-07-17 19:26:17 INFO  Logging:17 - Program has started
+2021-07-17 19:26:50 INFO  Logging:17 - Program has started

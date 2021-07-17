@@ -20,7 +20,7 @@ public interface UserDAO {
 
 	public boolean addBalance(double bal, String acct);
 
-	public boolean resetPass();
+	public boolean resetPass(String uname, String password);
 
 	public boolean setExec(User user);
 
