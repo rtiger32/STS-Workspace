@@ -1,5 +1,6 @@
 package com.bank.dao;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -78,6 +79,32 @@ public class UserDAOImpl implements UserDAO {
 		return false;
 	}
 
+	public boolean addUser2c(User user) {
+		// This adds to the key table the username and password
+
+		try {
+			connection = DAOUtil.getConnection();
+			connection.setAutoCommit(false);
+			CallableStatement stmt = connection.prepareCall("{call newuser(?,?)}");
+
+			stmt.setString(1, user.getuName());
+			stmt.setString(2, user.getPassword());
+			stmt.execute();
+			connection.setAutoCommit(true);
+		} catch (SQLException e) {
+			//e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+
+			}
+		}
+		return false;
+	}
+	
+	
 	
 	public boolean addUser3(Account newAcct) {
 		// This adds a new user to the user table

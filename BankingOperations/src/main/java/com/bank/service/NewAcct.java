@@ -36,6 +36,8 @@ public class NewAcct {
 		udao.addUser3(newAccount);
 		Logging.logger.info("New bank account opened for user: " + uname);
 		
+		System.out.println("Account " + acctNum + " opened for user " +uname + " with balance $" + balance);
+		
 		
 	}
 }

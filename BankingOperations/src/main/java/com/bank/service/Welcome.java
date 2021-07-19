@@ -11,7 +11,7 @@ public class Welcome {
 	public Welcome() {
 		
 	}
-	public User init() {
+	public void init() {
 
 		Scanner in = new Scanner(System.in);
 		UserDAOImpl udao = new UserDAOImpl();
@@ -55,7 +55,8 @@ public class Welcome {
 					User signin = udao.getUser(choice);
 					System.out.println("Please enter your password: ");
 					if (in.nextLine().equals(signin.getPassword())) {
-						return signin; // if the username and password is valid, return the user object
+						Verify act = new Verify();
+						act.acctCheck(signin);
 					} else {
 						System.out.println("Sorry, Try again");
 						Logging.logger.debug("User "+ choice + " failed to authenticate");
@@ -79,6 +80,7 @@ public class Welcome {
 				break;
 			case -42:// quit the program
 				Logging.logger.warn("The program was terminated");
+				System.out.println("----------------------------------------\n*** PROCESS TERMINATED ***\n----------------------------------------");
 				System.exit(0);
 			default:
 				break;

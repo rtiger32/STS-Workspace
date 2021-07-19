@@ -17,9 +17,7 @@ public class Main {
 		Logging.logger.info("Program has started");
 		Welcome wel = new Welcome();
 		while (true) {		
-			User user = wel.init();
-			Accounting act = new Accounting(user);
-			act.acctCheck();
+			wel.init();
 		}
 	}
 }
