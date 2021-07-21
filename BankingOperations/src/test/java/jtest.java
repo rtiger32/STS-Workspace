@@ -20,10 +20,10 @@ public class jtest {
 	public void setUp() throws Exception {
 	}
 
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
+//	@Test
+//	public void test() {
+//		fail("Not yet implemented");
+//	}
 	@Test
 	public void testValidLogin() {
 		User u1 = new User("test", "user", "testuser", "test@email.com", 0,  "testpass");

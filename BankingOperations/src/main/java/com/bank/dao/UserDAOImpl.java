@@ -153,14 +153,6 @@ public class UserDAOImpl implements UserDAO {
 			
 			stmt.executeUpdate();
 			
-			String sql3 = "UPDATE com_bank_bank SET uname='deleted' where uname = ?";
-			stmt = connection.prepareStatement(sql3);
-			
-			stmt.setString(1, uName);
-			
-			stmt.executeUpdate();
-			
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

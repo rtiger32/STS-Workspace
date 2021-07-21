@@ -88,7 +88,7 @@ public class Deposit {
 		double fine = 0;
 		double add2 = (acct.getBalance() - add);
 		if (add2 < 0)
-			if (add * 0.1 > 25)
+			if (add * 0.25 > 25)
 				fine = add2 * 0.1;
 			else
 				fine = 25;
