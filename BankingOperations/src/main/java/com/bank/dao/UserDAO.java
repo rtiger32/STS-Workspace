@@ -22,7 +22,7 @@ public interface UserDAO {
 
 	public boolean resetPass(String uname, String password);
 
-	public boolean setExec(User user);
+	public boolean setExec(User user, int ex);
 
 	public List<?> viewAcct(User user);
 

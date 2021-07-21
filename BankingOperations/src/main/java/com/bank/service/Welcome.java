@@ -19,23 +19,17 @@ public class Welcome {
 		while (true) {
 			for (int i = 0; i != 60; i++) {
 			System.out.println();
-			}
-			
-			System.out.println(" /$$$$$$$                                                     /$$                                  \r\n"
-					+ "| $$__   $$                                                   | $$                                  \r\n"
-					+ "| $$     \\ $$   /$$$$$$    /$$    /$$   /$$$$$$   /$$$$$$     /$$     /$$     /$$$$$$     /$$$$$$ \r\n"
-					+ "| $$$$$$$/  /$$__   $$  |  $$  /$$/  |____  $$ |_  $$_/     | $$    | $$    /$$__  $$   /$$__  $$\r\n"
-					+ "| $$__  $$  | $$$$$$$$  \\  $$/$$/   /$$$$$$$    | $$         | $$    | $$   | $$  \\__/  | $$$$$$$$\r\n"
-					+ "| $$    \\ $$  | $$_____/   \\  $$$/   /$$__    $$    | $$ /$$   | $$    | $$   | $$          | $$_____/\r\n"
-					+ "| $$    | $$  |  $$$$$$$    \\   $/   |   $$$$$$$     |  $$$$/   |  $$$$$$/   | $$          |  $$$$$$$\r\n"
-					+ "|__/    |__/   \\_______/     \\_/     \\_______/       \\___/       \\______/    |__/           \\_______/\r\n"
+			}		
+			System.out.println(" /$$$$$$$                                                        /$$                                  \r\n"
+					+ "| $$__   $$                                                      | $$                                  \r\n"
+					+ "| $$     \\ $$    /$$$$$$    /$$    /$$   /$$$$$$    /$$$$$$     /$$     /$$     /$$$$$$      /$$$$$$ \r\n"
+					+ "| $$$$$$$/   /$$__   $$  |  $$  /$$/  |____  $$  |_  $$_/     | $$    | $$    /$$__  $$   /$$__   $$\r\n"
+					+ "| $$__  $$   | $$$$$$$$  \\  $$/$$/   /$$$$$$$     | $$        | $$    | $$    | $$  \\__/   | $$$$$$$$\r\n"
+					+ "| $$    \\ $$  | $$_____/    \\  $$$/   /$$__    $$    | $$ /$$   | $$    | $$    | $$          | $$_____/\r\n"
+					+ "| $$    | $$  |  $$$$$$$     \\   $/    |   $$$$$$$    |  $$$$/   |  $$$$$$/    | $$           |  $$$$$$$\r\n"
+					+ "|__/    |__/   \\_______/      \\_/      \\_______/      \\____/     \\______/     |__/            \\_______/\r\n"
 					+ "                                                                                \r\n"
 					+ "                                                                               ");
-			
-			
-			
-
-			
 			
 			System.out.println("\n\nWelcome to our bank");
 			System.out.println("\nPress 1 to Login, Press 2 to Signup");
@@ -48,7 +42,7 @@ public class Welcome {
 			switch (select) {
 			case 1: // run the login code
 				int count = 0;
-				while (count != 3) {
+				while (count < 3) {
 					count++;
 					System.out.println("\nPlease enter your username: ");
 					String choice = in.nextLine();
@@ -57,14 +51,18 @@ public class Welcome {
 					if (in.nextLine().equals(signin.getPassword())) {
 						Verify act = new Verify();
 						act.acctCheck(signin);
+						count = 5;
 					} else {
 						System.out.println("Sorry, Try again");
 						Logging.logger.debug("User "+ choice + " failed to authenticate");
 					}
+					if (count ==3) {
+						Logging.logger.warn("A user did not authenticate");
+						System.out.println("You are not authorized to access this system."
+								+ " \nSee a staff member if you need assistance.");
+					}			
 				}
-				Logging.logger.warn("A user did not authenticate");
-				System.out.println("You are not authorized to access this system."
-						+ " \nSee a staff member if you need assistance.");
+				
 				try {
 					Thread.sleep(5000);
 				} catch (InterruptedException e) {

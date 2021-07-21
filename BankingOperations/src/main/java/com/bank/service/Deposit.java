@@ -50,7 +50,7 @@ public class Deposit {
 		Logging.logger.info(". The new balance for " + acct.getAcctNum() + " is: $" + acct.getBalance());
 		System.out.println("$" + add + " has been deposited into " + acct.getAcctNum());
 		try {
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -102,7 +102,11 @@ public class Deposit {
 			Logging.logger.warn(acct.getAcctNum() + " has been overdrawn");
 		}
 		Logging.logger.info("The new balance is: $" + acct.getBalance());
-
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void makeTransfer(Deposit trans) {

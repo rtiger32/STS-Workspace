@@ -154,3 +154,118 @@
 2021-07-19 11:31:39 INFO  Logging:54 - New user tuser6543 Created.
 2021-07-19 11:40:54 INFO  Logging:17 - Program has started
 2021-07-19 11:41:08 INFO  Logging:54 - New user tuser2218 Created.
+2021-07-19 14:28:23 INFO  Logging:17 - Program has started
+2021-07-19 14:28:34 DEBUG Logging:62 - User user0000 failed to authenticate
+2021-07-19 14:28:41 INFO  Logging:19 - Employee user0000 has logged in
+2021-07-19 14:42:21 INFO  Logging:37 - New bank account opened for user: tuser1992
+2021-07-19 17:46:41 INFO  Logging:17 - Program has started
+2021-07-19 17:48:23 INFO  Logging:17 - Program has started
+2021-07-19 17:49:20 INFO  Logging:17 - Program has started
+2021-07-19 17:52:13 INFO  Logging:17 - Program has started
+2021-07-19 17:53:27 INFO  Logging:54 - New user tuser7623 Created.
+2021-07-19 17:55:12 INFO  Logging:17 - Program has started
+2021-07-19 17:55:24 INFO  Logging:54 - New user tuser5864 Created.
+2021-07-19 17:56:20 INFO  Logging:17 - Program has started
+2021-07-19 17:57:48 INFO  Logging:17 - Program has started
+2021-07-19 17:59:26 INFO  Logging:54 - New user tuser7644 Created.
+2021-07-20 10:18:34 INFO  Logging:17 - Program has started
+2021-07-20 10:18:43 INFO  Logging:19 - Employee user0000 has logged in
+2021-07-20 10:21:30 INFO  Logging:17 - Program has started
+2021-07-20 10:21:36 INFO  Logging:20 - Employee user0000 has logged in
+2021-07-20 10:35:11 INFO  Logging:17 - Program has started
+2021-07-20 10:35:20 INFO  Logging:20 - Employee user0000 has logged in
+2021-07-20 10:35:44 INFO  Logging:17 - Program has started
+2021-07-20 10:35:51 INFO  Logging:20 - Employee user0000 has logged in
+2021-07-20 10:37:36 INFO  Logging:17 - Program has started
+2021-07-20 10:37:44 INFO  Logging:20 - Employee user0000 has logged in
+2021-07-20 10:39:59 INFO  Logging:121 - user0000has logged out
+2021-07-20 10:40:08 DEBUG Logging:50 - User  failed to authenticate
+2021-07-20 10:40:08 DEBUG Logging:50 - User  failed to authenticate
+2021-07-20 10:40:08 WARN  Logging:53 - A user did not authenticate
+2021-07-20 10:40:22 INFO  Logging:20 - Employee user0000 has logged in
+2021-07-20 10:40:23 INFO  Logging:121 - user0000has logged out
+2021-07-20 10:42:34 INFO  Logging:17 - Program has started
+2021-07-20 10:42:40 INFO  Logging:20 - Employee user0000 has logged in
+2021-07-20 10:42:42 INFO  Logging:121 - user0000has logged out
+2021-07-20 10:42:45 WARN  Logging:54 - A user did not authenticate
+2021-07-20 10:45:42 INFO  Logging:17 - Program has started
+2021-07-20 10:46:11 INFO  Logging:17 - Program has started
+2021-07-20 10:46:18 DEBUG Logging:50 - User user0000 failed to authenticate
+2021-07-20 10:46:24 DEBUG Logging:50 - User user0000 failed to authenticate
+2021-07-20 10:46:27 DEBUG Logging:50 - User  failed to authenticate
+2021-07-20 10:46:27 WARN  Logging:53 - A user did not authenticate
+2021-07-20 10:46:40 INFO  Logging:20 - Employee user0000 has logged in
+2021-07-20 10:46:42 INFO  Logging:121 - user0000has logged out
+2021-07-20 10:47:10 INFO  Logging:17 - Program has started
+2021-07-20 10:48:25 INFO  Logging:20 - Employee user0000 has logged in
+2021-07-20 10:48:31 INFO  Logging:121 - user0000has logged out
+2021-07-20 10:49:26 INFO  Logging:17 - Program has started
+2021-07-20 10:49:30 INFO  Logging:17 - Program has started
+2021-07-20 10:49:36 INFO  Logging:17 - Program has started
+2021-07-20 10:49:56 INFO  Logging:20 - Employee user0000 has logged in
+2021-07-20 10:51:01 INFO  Logging:121 - user0000has logged out
+2021-07-20 10:56:17 INFO  Logging:17 - Program has started
+2021-07-20 10:56:24 INFO  Logging:20 - Employee user0000 has logged in
+2021-07-20 10:56:25 INFO  Logging:121 - user0000has logged out
+2021-07-20 11:01:18 INFO  Logging:17 - Program has started
+2021-07-20 11:04:11 INFO  Logging:17 - Program has started
+2021-07-20 11:04:30 INFO  Logging:63 - New user tuser5749 Created.
+2021-07-20 11:06:55 INFO  Logging:20 - Employee user0000 has logged in
+2021-07-20 14:08:24 INFO  Logging:9 - Program has started
+2021-07-20 14:09:20 INFO  Logging:63 - New user tuser5420 Created.
+2021-07-20 14:09:41 INFO  Logging:18 - User tuser5420 has logged in
+2021-07-20 14:09:41 INFO  Logging:31 - tuser5420 has no active accounts
+2021-07-20 14:10:03 INFO  Logging:20 - Employee user0000 has logged in
+2021-07-20 14:10:19 INFO  Logging:49 - user0000 has deposited $500.0 into account 10000 00002
+2021-07-20 14:10:19 INFO  Logging:50 - . The new balance for 10000 00002 is: $1.8
+2021-07-20 14:10:36 INFO  Logging:98 - user0000 has withdrawn $400.0 from account 10000 00002
+2021-07-20 14:10:36 INFO  Logging:104 - The new balance is: $501.8
+2021-07-20 14:12:48 INFO  Logging:98 - user0000 has withdrawn $30.0 from account 10000 00000
+2021-07-20 14:12:48 INFO  Logging:104 - The new balance is: $44.21
+2021-07-20 14:12:48 INFO  Logging:49 - user0000 has deposited $30.0 into account 10000 00001
+2021-07-20 14:12:48 INFO  Logging:50 - . The new balance for 10000 00001 is: $74.5
+2021-07-20 14:15:06 INFO  Logging:37 - New bank account opened for user: tuser5420
+2021-07-20 14:16:16 INFO  Logging:9 - Program has started
+2021-07-20 14:16:22 INFO  Logging:20 - Employee user0000 has logged in
+2021-07-20 14:16:39 INFO  Logging:37 - New bank account opened for user: tuser5420
+2021-07-20 14:34:41 INFO  Logging:121 - user0000has logged out
+2021-07-20 14:34:55 WARN  Logging:70 - The program was terminated
+2021-07-20 14:35:48 INFO  Logging:9 - Program has started
+2021-07-20 14:37:01 INFO  Logging:9 - Program has started
+2021-07-20 14:37:16 INFO  Logging:9 - Program has started
+2021-07-20 18:15:07 INFO  Logging:9 - Program has started
+2021-07-20 18:15:15 INFO  Logging:20 - Employee user0000 has logged in
+2021-07-20 19:53:18 INFO  Logging:9 - Program has started
+2021-07-20 19:53:31 INFO  Logging:20 - Employee user0000 has logged in
+2021-07-20 19:54:34 WARN  Logging:184 - Manager user0000 has changedtuser1992 to level 1
+2021-07-21 09:52:29 INFO  Logging:9 - Program has started
+2021-07-21 09:58:31 INFO  Logging:9 - Program has started
+2021-07-21 09:58:36 INFO  Logging:9 - Program has started
+2021-07-21 09:58:42 INFO  Logging:9 - Program has started
+2021-07-21 09:58:55 INFO  Logging:9 - Program has started
+2021-07-21 09:59:05 INFO  Logging:9 - Program has started
+2021-07-21 09:59:14 INFO  Logging:9 - Program has started
+2021-07-21 09:59:27 INFO  Logging:9 - Program has started
+2021-07-21 09:59:32 INFO  Logging:9 - Program has started
+2021-07-21 09:59:38 INFO  Logging:9 - Program has started
+2021-07-21 09:59:43 INFO  Logging:9 - Program has started
+2021-07-21 09:59:56 INFO  Logging:9 - Program has started
+2021-07-21 10:00:01 INFO  Logging:9 - Program has started
+2021-07-21 10:00:20 INFO  Logging:9 - Program has started
+2021-07-21 10:00:24 INFO  Logging:9 - Program has started
+2021-07-21 10:00:42 INFO  Logging:9 - Program has started
+2021-07-21 10:00:48 INFO  Logging:9 - Program has started
+2021-07-21 10:00:56 INFO  Logging:9 - Program has started
+2021-07-21 10:01:06 INFO  Logging:9 - Program has started
+2021-07-21 10:01:12 INFO  Logging:9 - Program has started
+2021-07-21 10:01:38 INFO  Logging:9 - Program has started
+2021-07-21 10:01:43 INFO  Logging:9 - Program has started
+2021-07-21 10:01:49 INFO  Logging:9 - Program has started
+2021-07-21 10:09:53 INFO  Logging:9 - Program has started
+2021-07-21 10:19:23 INFO  Logging:9 - Program has started
+2021-07-21 10:19:30 INFO  Logging:9 - Program has started
+2021-07-21 10:19:42 INFO  Logging:9 - Program has started
+2021-07-21 10:19:45 INFO  Logging:9 - Program has started
+2021-07-21 10:20:00 INFO  Logging:9 - Program has started
+2021-07-21 10:20:06 INFO  Logging:9 - Program has started
+2021-07-21 10:20:22 INFO  Logging:9 - Program has started

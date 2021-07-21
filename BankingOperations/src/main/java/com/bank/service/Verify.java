@@ -1,5 +1,6 @@
 package com.bank.service;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 import com.bank.dao.UserDAOImpl;
@@ -39,7 +40,11 @@ public class Verify {
 			// Otherwise, lets do business
 		} else {
 			Accounting act = new Accounting(user);
-			act.accounting(accounts);
+			try {
+				act.accounting(accounts);
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 }

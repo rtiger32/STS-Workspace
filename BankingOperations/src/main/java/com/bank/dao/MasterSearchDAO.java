@@ -59,7 +59,7 @@ public class MasterSearchDAO {
 
 		try {
 			connection = DAOUtil.getConnection();
-			String sql = "SELECT * FROM com_bank_users FULL JOIN com_bank_bank on com_bank_bank.uname = com_bank_users.uname WHERE uname LIKE ?";
+			String sql = "SELECT * FROM com_bank_users FULL JOIN com_bank_bank on com_bank_bank.uname = com_bank_users.uname WHERE com_bank_users.uname LIKE ?";
 			stmt = connection.prepareStatement(sql);
 
 			stmt.setString(1, uname);

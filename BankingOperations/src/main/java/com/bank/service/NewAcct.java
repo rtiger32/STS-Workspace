@@ -37,7 +37,8 @@ public class NewAcct {
 		Logging.logger.info("New bank account opened for user: " + uname);
 		
 		System.out.println("Account " + acctNum + " opened for user " +uname + " with balance $" + balance);
-		
-		
+		in.nextLine();
+		System.out.println("Press any key");
+		in.nextLine();
 	}
 }

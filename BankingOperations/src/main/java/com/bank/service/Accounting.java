@@ -19,45 +19,12 @@ public class Accounting {
 	private User user = new User();
 	private UserDAOImpl udao = new UserDAOImpl();
 	private Scanner in = new Scanner(System.in);
-//	private List<Account> accounts;
 
 	public Accounting(User user) {
 		this.user = user;
-//		this.accounts = accounts;
 	}
 
-//	public void acctCheck() {
-//		// Check to see if the user has an account
-//		if (user.getExec() == 0)
-//			Logging.logger.info("User " + user.getuName() + " has logged in");
-//		else
-//			Logging.logger.info("Employee " + user.getuName() + " has logged in");
-//		List<Account> accounts = udao.viewAcct(user);
-//
-//		for (int i = 0; i != 60; i++) {
-//			System.out.println();
-//		}
-//		System.out.println("Welcome " + user.getfName() + " " + user.getlName() + "\n");
-//
-//		// If the user has no account, tell them to go find a staff member
-//		if (accounts.isEmpty() && user.getExec() == 0) {
-//
-//			Logging.logger.info(user.getuName() + " has no active accounts");
-//			System.out.println("You currently have no accounts with our bank. \n "
-//					+ "Please see one of our representitives to open a new account.");
-//			try {
-//				Thread.sleep(10000);
-//			} catch (InterruptedException e) {
-//				e.printStackTrace();
-//			}
-//
-//			// Otherwise, lets do business
-//		} else {
-//			accounting(accounts);
-//		}
-//	}
-
-	public void accounting(List<Account> accounts) {
+	public void accounting(List<Account> accounts) throws FileNotFoundException {
 		// The user has an account, or is an employee
 
 		if (accounts.isEmpty()) {
@@ -77,11 +44,12 @@ public class Accounting {
 				int select;
 
 				System.out.println("\nWhat would you like to do:\n1) Make a deposit"
-						+ "\n2) Withdraw funds\n3) Transfer funds to another account" + "\n4) Logout");
+						+ "\n2) Withdraw funds\n3) Transfer funds to another account"
+						+ "\n4) Change Password\n5) Logout");
 
 				if (user.getExec() != 0) {
-					System.out.println(
-							"6) ADMIN: Open a new banking account \n7) ADMIN View a specific account \n8) ADMIN View the system log");
+					System.out.println("6) Open a new banking account \n7) View a specific account "
+							+ "\n8) View the system log\n9) Delete an account\n10) Add an employee");
 
 				}
 				try {
@@ -116,7 +84,14 @@ public class Accounting {
 					dep.showBalance();
 					dep.makeTransfer(dep2);
 					break;
-				case 4: // logout
+				case 4:
+					Password pass = new Password();
+					if (pass.change(user.getuName())) {
+						return;
+					} else {
+						break;
+					}
+				case 5: // logout
 					System.out.println("Have a nice day");
 					Logging.logger.info(user.getuName() + "has logged out");
 					try {
@@ -146,12 +121,9 @@ public class Accounting {
 						System.out.println("Invalid entry. Try again.");
 						break;
 					}
-					BufferedReader rin = new BufferedReader(null);
-					try {
-						rin = new BufferedReader(new FileReader("log.txt"));
-					} catch (FileNotFoundException e) {
-						e.printStackTrace();
-					}
+
+					BufferedReader rin = new BufferedReader(new FileReader(
+							"c:/users/rpeng/desktop/eclipse/sts workspace/bankingoperations/src/log.txt"));
 					String line;
 					try {
 						while ((line = rin.readLine()) != null) {
@@ -163,6 +135,61 @@ public class Accounting {
 					System.out.println("Press any key");
 					in.nextLine();
 					break;
+				case 9:
+					if (user.getExec() != 2) {
+						System.out.println("Invalid entry. Try again.");
+						break;
+					}
+					System.out.println("Enter the user to remove");
+					String rem = in.nextLine();
+					User rmuser =  udao.getUser(rem); 
+					if (rmuser.getExec() ==2) {
+						System.out.println("You are not authorized to perform this operation");
+						Logging.logger.warn(user.getuName() + " has attempted to delete Manager " + rem);
+					} else {
+					udao.removeUserByUsername(rem);
+					System.out.println("User "+ rem + " has been deleted");
+					Logging.logger.warn("Manager " + user.getuName() + " has deleted User " + rem);
+					}
+					
+					
+					break;
+				case 10:
+					if (user.getExec() != 2) {
+						System.out.println("Invalid entry. Try again.");
+						break;
+					}
+					System.out.println("Enter the user to change permissions");
+					String el = in.nextLine();
+					User eluser =  udao.getUser(el); 
+					if (eluser.getExec() ==2) {
+						System.out.println("You are not authorized to perform this operation");
+						Logging.logger.warn(user.getuName() + " has attempted to alter permissions on Manager " + el);
+					} else {
+						
+						System.out.println("Change status to:\n1) User \n2) Employee");
+						int ex;
+						try {
+							ex = Integer.parseInt(in.nextLine());
+							ex--;							
+						} catch(Exception e) {
+							ex=0;
+						}
+					System.out.print("Status of "+ el + " has been changed to ");
+					if (ex == 1)
+						System.out.println("Employee");
+					else {
+						ex = 0;
+						System.out.println("User");
+					}
+					udao.setExec(eluser, ex);
+					Logging.logger.warn("Manager " + user.getuName() + " has changed" 
+					+ eluser.getuName() + " to level " + ex);
+					
+					}
+					break;
+					
+					
 				default:
 					System.out.println("Invalid entry. Try again.");
 					continue;

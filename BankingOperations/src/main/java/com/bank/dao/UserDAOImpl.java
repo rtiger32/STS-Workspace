@@ -85,14 +85,14 @@ public class UserDAOImpl implements UserDAO {
 		try {
 			connection = DAOUtil.getConnection();
 			connection.setAutoCommit(false);
-			CallableStatement stmt = connection.prepareCall("{call newuser(?,?)}");
+			CallableStatement stmt = connection.prepareCall("{?=call newuser(?,?)}");
 
-			stmt.setString(1, user.getuName());
-			stmt.setString(2, user.getPassword());
+			stmt.setString(2, user.getuName());
+			stmt.setString(3, user.getPassword());
 			stmt.execute();
 			connection.setAutoCommit(true);
 		} catch (SQLException e) {
-			//e.printStackTrace();
+			e.printStackTrace();
 		} finally {
 			try {
 				stmt.close();
@@ -103,9 +103,7 @@ public class UserDAOImpl implements UserDAO {
 		}
 		return false;
 	}
-	
-	
-	
+
 	public boolean addUser3(Account newAcct) {
 		// This adds a new user to the user table
 
@@ -117,7 +115,6 @@ public class UserDAOImpl implements UserDAO {
 			stmt.setString(1, newAcct.getuName());
 			stmt.setString(2, newAcct.getAcctNum());
 			stmt.setDouble(3, newAcct.getBalance());
-
 
 			if (stmt.executeUpdate() != 0)
 				return true;
@@ -136,10 +133,7 @@ public class UserDAOImpl implements UserDAO {
 		}
 		return false;
 	}
-	
-	
-	
-	
+
 	public boolean removeUserByUsername(String uName) {
 		// not done
 
@@ -150,11 +144,23 @@ public class UserDAOImpl implements UserDAO {
 
 			stmt.setString(1, uName);
 
-			if (stmt.executeUpdate() != 0)
-				return true;
-			else
-				return false;
-
+			stmt.executeUpdate();
+	
+			String sql2 = "DELETE FROM com_bank_users where uname = ?";
+			stmt = connection.prepareStatement(sql2);
+			
+			stmt.setString(1, uName);
+			
+			stmt.executeUpdate();
+			
+			String sql3 = "UPDATE com_bank_bank SET uname='deleted' where uname = ?";
+			stmt = connection.prepareStatement(sql3);
+			
+			stmt.setString(1, uName);
+			
+			stmt.executeUpdate();
+			
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -258,8 +264,30 @@ public class UserDAOImpl implements UserDAO {
 		return false;
 	}
 
-	public boolean setExec(User user) {
-		// TODO Auto-generated method stub
+	public boolean setExec(User user, int num) {
+		
+		try {
+			connection = DAOUtil.getConnection();
+			String sql = "UPDATE com_bank_users SET setexec=? WHERE uname=?";
+			stmt = connection.prepareStatement(sql);
+
+			stmt.setInt(1, num);
+			stmt.setString(2, user.getuName());
+
+			if (stmt.executeUpdate() != 0)
+				return true;
+			else
+				return false;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 		return false;
 	}
 
@@ -327,7 +355,6 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	public User getUser(String uname) {
-		// TODO Auto-generated method stub
 
 		User user = new User();
 
@@ -361,18 +388,19 @@ public class UserDAOImpl implements UserDAO {
 		return null;
 	}
 
-	public boolean checkUser(String uName) {
+	public int checkUser(String uName) {
 		try {
 			connection = DAOUtil.getConnection();
-			String sql = "SELECT uname FROM com_bank_users WHERE uname=?";
+			String sql = "SELECT COUNT(uname) FROM com_bank_users WHERE uname=?";
 			stmt = connection.prepareStatement(sql);
 
 			stmt.setString(1, uName);
 
-			if (stmt.executeUpdate() != 0)
-				return true;
-			else
-				return false;
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				int count = rs.getInt(1);
+				return count;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -382,21 +410,22 @@ public class UserDAOImpl implements UserDAO {
 				e.printStackTrace();
 			}
 		}
-		return false;
+		return -1;
 	}
 
-	public boolean checkEmail(String uName) {
+	public int checkEmail(String uName) {
 		try {
 			connection = DAOUtil.getConnection();
-			String sql = "SELECT email FROM com_bank_users WHERE email=?";
+			String sql = "SELECT COUNT(email) FROM com_bank_users WHERE email=?";
 			stmt = connection.prepareStatement(sql);
 
 			stmt.setString(1, uName);
 
-			if (stmt.executeUpdate() != 0)
-				return true;
-			else
-				return false;
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				int count = rs.getInt(1);
+				return count;
+			}
 		} catch (Exception e) {
 			// e.printStackTrace();
 		} finally {
@@ -406,7 +435,7 @@ public class UserDAOImpl implements UserDAO {
 				e.printStackTrace();
 			}
 		}
-		return false;
+		return -1;
 	}
 
 	public int countAccounts() {
@@ -422,7 +451,7 @@ public class UserDAOImpl implements UserDAO {
 				ls.add(user);
 			}
 			return ls.size();
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
