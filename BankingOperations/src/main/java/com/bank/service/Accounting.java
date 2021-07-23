@@ -24,6 +24,15 @@ public class Accounting {
 		this.user = user;
 	}
 
+	private void wait(int num) {
+
+		try {
+			Thread.sleep(num);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public void accounting(List<Account> accounts) throws FileNotFoundException {
 		// The user has an account, or is an employee
 
@@ -66,6 +75,7 @@ public class Accounting {
 						continue;
 					dep.showBalance();
 					dep.makeDeposit();
+					wait(3000);
 					break;
 				case 2: // withdraw
 					dep = acctChk(accounts, true, true);
@@ -73,6 +83,7 @@ public class Accounting {
 						continue;
 					dep.showBalance();
 					dep.makeWithdrawl();
+					wait(3000);
 					break;
 				case 3: // transfer
 					dep = acctChk(accounts, true, true);
@@ -83,6 +94,7 @@ public class Accounting {
 						continue;
 					dep.showBalance();
 					dep.makeTransfer(dep2);
+					wait(3000);
 					break;
 				case 4:
 					Password pass = new Password();
@@ -94,11 +106,7 @@ public class Accounting {
 				case 5: // logout
 					System.out.println("Have a nice day");
 					Logging.logger.info(user.getuName() + "has logged out");
-					try {
-						Thread.sleep(3000);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
+					wait(3000);
 					return;
 				case 6:// new bank account
 					if (user.getExec() == 0) {
@@ -142,17 +150,16 @@ public class Accounting {
 					}
 					System.out.println("Enter the user to remove");
 					String rem = in.nextLine();
-					User rmuser =  udao.getUser(rem); 
-					if (rmuser.getExec() ==2) {
+					User rmuser = udao.getUser(rem);
+					if (rmuser.getExec() == 2) {
 						System.out.println("You are not authorized to perform this operation");
 						Logging.logger.warn(user.getuName() + " has attempted to delete Manager " + rem);
 					} else {
-					udao.removeUserByUsername(rem);
-					System.out.println("User "+ rem + " has been deleted");
-					Logging.logger.warn("Manager " + user.getuName() + " has deleted User " + rem);
+						udao.removeUserByUsername(rem);
+						System.out.println("User " + rem + " has been deleted");
+						Logging.logger.warn("Manager " + user.getuName() + " has deleted User " + rem);
 					}
-					
-					
+					wait(3000);
 					break;
 				case 10:
 					if (user.getExec() != 2) {
@@ -161,35 +168,34 @@ public class Accounting {
 					}
 					System.out.println("Enter the user to change permissions");
 					String el = in.nextLine();
-					User eluser =  udao.getUser(el); 
-					if (eluser.getExec() ==2) {
+					User eluser = udao.getUser(el);
+					if (eluser.getExec() == 2) {
 						System.out.println("You are not authorized to perform this operation");
 						Logging.logger.warn(user.getuName() + " has attempted to alter permissions on Manager " + el);
 					} else {
-						
+
 						System.out.println("Change status to:\n1) User \n2) Employee");
 						int ex;
 						try {
 							ex = Integer.parseInt(in.nextLine());
-							ex--;							
-						} catch(Exception e) {
-							ex=0;
+							ex--;
+						} catch (Exception e) {
+							ex = 0;
 						}
-					System.out.print("Status of "+ el + " has been changed to ");
-					if (ex == 1)
-						System.out.println("Employee");
-					else {
-						ex = 0;
-						System.out.println("User");
+						System.out.print("Status of " + el + " has been changed to ");
+						if (ex == 1)
+							System.out.println("Employee");
+						else {
+							ex = 0;
+							System.out.println("User");
+						}
+						udao.setExec(eluser, ex);
+						Logging.logger.warn(
+								"Manager " + user.getuName() + " has changed" + eluser.getuName() + " to level " + ex);
 					}
-					udao.setExec(eluser, ex);
-					Logging.logger.warn("Manager " + user.getuName() + " has changed" 
-					+ eluser.getuName() + " to level " + ex);
-					
-					}
+					wait(3000);
 					break;
-					
-					
+
 				default:
 					System.out.println("Invalid entry. Try again.");
 					continue;
@@ -232,6 +238,6 @@ public class Accounting {
 		}
 		System.out.println("Sorry, I did not find that account");
 		return null;
-
 	}
+
 }

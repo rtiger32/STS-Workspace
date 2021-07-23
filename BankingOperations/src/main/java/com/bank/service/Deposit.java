@@ -33,11 +33,7 @@ public class Deposit {
 		}
 		if (add < 0) {
 			System.out.println("You cannot deposit a negative number");
-			try {
-				Thread.sleep(3000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+
 			return;
 		}
 		makeDeposit(add, acct.getuName());
@@ -49,11 +45,7 @@ public class Deposit {
 		Logging.logger.info(uname + " has deposited $" + add + " into account " + acct.getAcctNum());
 		Logging.logger.info(". The new balance for " + acct.getAcctNum() + " is: $" + acct.getBalance());
 		System.out.println("$" + add + " has been deposited into " + acct.getAcctNum());
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+
 	}
 
 	public void makeWithdrawl() {
@@ -74,11 +66,7 @@ public class Deposit {
 			}
 			if (add < 0) {
 				System.out.println("You cannot withdraw a negative number");
-				try {
-					Thread.sleep(3000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+
 			}
 			makeWithdrawl(add);
 		}
@@ -102,11 +90,7 @@ public class Deposit {
 			Logging.logger.warn(acct.getAcctNum() + " has been overdrawn");
 		}
 		Logging.logger.info("The new balance is: $" + acct.getBalance());
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+
 	}
 
 	public void makeTransfer(Deposit trans) {
@@ -122,11 +106,7 @@ public class Deposit {
 			}
 			if (add < 0) {
 				System.out.println("You cannot transfer a negative number");
-				try {
-					Thread.sleep(3000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+
 				return;
 			}
 			makeWithdrawl(add);

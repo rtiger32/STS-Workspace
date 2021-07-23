@@ -24,6 +24,17 @@ public class User {
 		this.setEmail(email);
 	}
 	
+	
+
+	public User(String uname, String password) {
+		this.fName = null;
+		this.lName = null;
+		this.password = password;
+		this.uName = uname;
+		this.exec = 0;
+		this.setEmail(null);
+	}
+	
 	public User(String fName, String lName, String password, String uname, int exec, String email) {
 		this.fName = fName;
 		this.lName = lName;

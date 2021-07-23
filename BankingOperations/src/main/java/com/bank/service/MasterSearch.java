@@ -36,7 +36,7 @@ public class MasterSearch {
 		}
 
 		System.out.println(
-				"MASTER SEARCH\n\nHow would you like to search?\n\n1) Search by name\n2) Search by username\n3) Search by email address\n4) Search by account number\n5) End search");
+				"MASTER SEARCH\n\nHow would you like to search?\n\n1) Search by name\n2) Search by username\n3) Search by account number\n4) Search by email address\n5) End search");
 		try {
 			search = Integer.parseInt(in.nextLine());
 		} catch (Exception e) {

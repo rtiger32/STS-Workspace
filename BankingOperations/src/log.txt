@@ -273,3 +273,54 @@
 2021-07-21 10:56:40 INFO  Logging:9 - Program has started
 2021-07-21 11:10:58 INFO  Logging:9 - Program has started
 2021-07-21 11:12:14 INFO  Logging:9 - Program has started
+2021-07-21 12:54:08 INFO  Logging:63 - New user emcgi1834 Created.
+2021-07-21 12:54:26 DEBUG Logging:57 - User emcgi1834 failed to authenticate
+2021-07-21 12:54:46 DEBUG Logging:57 - User emcgi1834 failed to authenticate
+2021-07-21 12:54:48 DEBUG Logging:57 - User  failed to authenticate
+2021-07-21 12:54:48 WARN  Logging:60 - A user did not authenticate
+2021-07-21 12:55:10 INFO  Logging:20 - Employee tuser1992 has logged in
+2021-07-21 12:55:23 INFO  Logging:96 - tuser1992has logged out
+2021-07-21 12:55:49 INFO  Logging:20 - Employee user0000 has logged in
+2021-07-21 12:55:59 INFO  Logging:49 - user0000 has deposited $100.0 into account 10000 00000
+2021-07-21 12:55:59 INFO  Logging:50 - . The new balance for 10000 00000 is: $14.21
+2021-07-21 12:56:17 INFO  Logging:98 - user0000 has withdrawn $10000.0 from account 10000 00000
+2021-07-21 12:56:17 INFO  Logging:104 - The new balance is: $114.21
+2021-07-21 12:56:43 INFO  Logging:98 - user0000 has withdrawn $20.0 from account 10000 00001
+2021-07-21 12:56:43 INFO  Logging:104 - The new balance is: $104.5
+2021-07-21 12:56:48 INFO  Logging:49 - user0000 has deposited $20.0 into account 10000 00002
+2021-07-21 12:56:48 INFO  Logging:50 - . The new balance for 10000 00002 is: $101.8
+2021-07-21 12:58:28 INFO  Logging:96 - user0000has logged out
+2021-07-21 12:58:51 INFO  Logging:63 - New user rengl3001 Created.
+2021-07-21 13:00:02 INFO  Logging:9 - Program has started
+2021-07-21 13:00:27 INFO  Logging:18 - User tuser5749 has logged in
+2021-07-21 13:00:27 INFO  Logging:31 - tuser5749 has no active accounts
+2021-07-21 13:00:56 DEBUG Logging:57 - User tuser5420 failed to authenticate
+2021-07-21 13:01:38 DEBUG Logging:57 - User user0000 failed to authenticate
+2021-07-21 13:01:45 INFO  Logging:20 - Employee user0000 has logged in
+2021-07-21 13:02:06 INFO  Logging:37 - New bank account opened for user: tuser5749
+2021-07-21 13:02:12 INFO  Logging:96 - user0000has logged out
+2021-07-21 13:02:30 INFO  Logging:18 - User tuser5749 has logged in
+2021-07-21 16:49:35 INFO  Logging:9 - Program has started
+2021-07-21 16:49:48 INFO  Logging:63 - New user tuser8326 Created.
+2021-07-21 16:51:05 INFO  Logging:63 - New user tuser1323 Created.
+2021-07-21 16:51:22 INFO  Logging:18 - User tuser1323 has logged in
+2021-07-21 16:51:22 INFO  Logging:31 - tuser1323 has no active accounts
+2021-07-21 16:56:03 INFO  Logging:20 - Employee user0000 has logged in
+2021-07-22 14:12:06 INFO  Logging:9 - Program has started
+2021-07-22 14:12:18 INFO  Logging:63 - New user tuser1292 Created.
+2021-07-22 14:12:31 DEBUG Logging:57 - User tuser1912 failed to authenticate
+2021-07-22 14:12:43 INFO  Logging:18 - User tuser1292 has logged in
+2021-07-22 14:12:43 INFO  Logging:31 - tuser1292 has no active accounts
+2021-07-22 14:13:07 INFO  Logging:20 - Employee user0000 has logged in
+2021-07-22 14:13:17 INFO  Logging:37 - New bank account opened for user: tuser1292
+2021-07-22 14:16:23 INFO  Logging:49 - user0000 has deposited $10000.0 into account 10000 00000
+2021-07-22 14:16:23 INFO  Logging:50 - . The new balance for 10000 00000 is: $-8897.211
+2021-07-22 14:16:39 INFO  Logging:98 - user0000 has withdrawn $100.0 from account 10000 00001
+2021-07-22 14:16:39 WARN  Logging:102 - 10000 00001 has been overdrawn
+2021-07-22 14:16:39 INFO  Logging:104 - The new balance is: $84.5
+2021-07-22 14:17:05 INFO  Logging:98 - user0000 has withdrawn $100.0 from account 10000 00000
+2021-07-22 14:17:05 INFO  Logging:104 - The new balance is: $1102.789
+2021-07-22 14:17:10 INFO  Logging:49 - user0000 has deposited $100.0 into account 10000 00001
+2021-07-22 14:17:10 INFO  Logging:50 - . The new balance for 10000 00001 is: $-40.5
+2021-07-22 14:18:07 INFO  Logging:96 - user0000has logged out
+2021-07-22 14:18:26 INFO  Logging:18 - User tuser1292 has logged in

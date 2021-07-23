@@ -32,7 +32,7 @@ public class Verify {
 			System.out.println("You currently have no accounts with our bank. \n "
 					+ "Please see one of our representitives to open a new account.");
 			try {
-				Thread.sleep(10000);
+				Thread.sleep(6000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
