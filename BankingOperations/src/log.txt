@@ -324,3 +324,20 @@
 2021-07-22 14:17:10 INFO  Logging:50 - . The new balance for 10000 00001 is: $-40.5
 2021-07-22 14:18:07 INFO  Logging:96 - user0000has logged out
 2021-07-22 14:18:26 INFO  Logging:18 - User tuser1292 has logged in
+2021-07-26 10:34:19 INFO  Logging:9 - Program has started
+2021-07-26 10:36:29 INFO  Logging:63 - New user tu2311 Created.
+2021-07-26 10:36:40 INFO  Logging:18 - User tu2311 has logged in
+2021-07-26 10:36:40 INFO  Logging:31 - tu2311 has no active accounts
+2021-07-26 10:36:58 INFO  Logging:20 - Employee user0000 has logged in
+2021-07-26 10:37:08 INFO  Logging:37 - New bank account opened for user: tu2311
+2021-07-26 10:37:50 INFO  Logging:45 - user0000 has deposited $10.0 into account 10000 00002
+2021-07-26 10:37:50 INFO  Logging:46 - . The new balance for 10000 00002 is: $121.8
+2021-07-26 10:38:03 INFO  Logging:86 - user0000 has withdrawn $20.0 from account 10000 00002
+2021-07-26 10:38:03 INFO  Logging:92 - The new balance is: $131.8
+2021-07-26 10:38:27 INFO  Logging:86 - user0000 has withdrawn $70.0 from account 10000 00001
+2021-07-26 10:38:27 WARN  Logging:90 - 10000 00001 has been overdrawn
+2021-07-26 10:38:27 INFO  Logging:92 - The new balance is: $59.5
+2021-07-26 10:38:27 INFO  Logging:45 - user0000 has deposited $70.0 into account 10000 00000
+2021-07-26 10:38:27 INFO  Logging:46 - . The new balance for 10000 00000 is: $1002.789
+2021-07-26 10:38:35 INFO  Logging:108 - user0000has logged out
+2021-07-26 10:38:49 INFO  Logging:18 - User tu2311 has logged in

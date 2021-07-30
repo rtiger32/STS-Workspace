@@ -30,5 +30,6 @@ public class Main {
 		System.out.println(Arrays.toString(oneArr.getLink()));
 		System.out.println(Arrays.toString(twoArr.getLink()));
 
+		x();
 	}
 }

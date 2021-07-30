@@ -105,7 +105,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	public boolean addUser3(Account newAcct) {
-		// This adds a new user to the user table
+		// This adds a new user to the bank table
 
 		try {
 			connection = DAOUtil.getConnection();
@@ -135,7 +135,6 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	public boolean removeUserByUsername(String uName) {
-		// not done
 
 		try {
 			connection = DAOUtil.getConnection();
@@ -177,15 +176,12 @@ public class UserDAOImpl implements UserDAO {
 			stmt.setString(1, acctNum);
 
 			ResultSet rs = stmt.executeQuery();
-//			List<Account> acct = new ArrayList<>();
 			Account add = new Account();
 			if (stmt.executeUpdate() != 1)
 				Logging.logger.error(acctNum + "has multiple entries in the database");
 			while (rs.next()) {
-//				add = new Account();
 				add.setBalance(rs.getDouble(1));
 				System.out.println(add.getBalance());
-//				acct.add(add);
 			}
 			return add.getBalance();
 
@@ -419,7 +415,7 @@ public class UserDAOImpl implements UserDAO {
 				return count;
 			}
 		} catch (Exception e) {
-			// e.printStackTrace();
+			e.printStackTrace();
 		} finally {
 			try {
 				stmt.close();
