@@ -10,12 +10,13 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import ers.dao.UserDAO;
 import ers.model.Users;
 import ers.service.UserService;
 
 public class LoginController {
 
-//	private static UserDAO udao = new UserDAO();
+	private static UserDAO udao = new UserDAO();
 	private static UserService userv = new UserService();
 
 	public static void login(HttpServletRequest req, HttpServletResponse res)
@@ -38,7 +39,7 @@ public class LoginController {
 
 		try {
 			Users u = userv.signIn(username, password);
-			req.getSession().setAttribute("username", u.getUname());
+			req.getSession().setAttribute("role", udao.selectRole(username));
 			res.setStatus(HttpServletResponse.SC_OK);
 			res.getWriter().write(new ObjectMapper().writeValueAsString(u));
 		} catch (Exception e) {

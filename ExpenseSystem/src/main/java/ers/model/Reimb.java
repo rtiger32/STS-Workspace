@@ -1,5 +1,8 @@
 package ers.model;
 
+import java.util.Date;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,40 +18,40 @@ public class Reimb {
 
 	@Column(name = "reimb_amount", nullable = false)
 	private double amount;
-	@Column(name = "reimb_submitted", nullable = false)
-	private boolean submitted;
-	@Column(name = "reimb_resolved", nullable = false)
-	private boolean resolved;
+	@Column(name = "reimb_submitted" )
+	private String dateSubmitted;
+	@Column(name = "reimb_resolved" )
+	private String dateResolved;
 	@Column(name = "reimb_description", nullable = false)
 	private String description;
-	@Column(name = "reimb_reciept", nullable = false)
+	@Column(name = "reimb_reciept")
 	private boolean reciept;
 	@Id
-	@Column(name = "Reimb_ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "Reimb_ID")
 	private int id;
 
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "user_submitted", referencedColumnName = "ers_username")
-	private Users fname;
+	private Users submit;
 
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "user_resolved", referencedColumnName = "ers_username")
-	private Users lname;
+	private Users resolve;
 
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "reimb_type", referencedColumnName = "reimb_type")
 	private ReimbType type;
 
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
 	@JoinColumn(name = "reimb_status", referencedColumnName = "reimb_status")
 	private ReimbStatus status;
 
-	public Reimb(double amount, boolean submitted, boolean resolved, String description) {
+	public Reimb(double amount, String description) {
 		super();
+		String date = new Date().toString();
 		this.amount = amount;
-		this.submitted = submitted;
-		this.resolved = resolved;
+		this.dateSubmitted = date;
 		this.description = description;
 	}
 
@@ -64,20 +67,20 @@ public class Reimb {
 		this.amount = amount;
 	}
 
-	public boolean isSubmitted() {
-		return submitted;
+	public String getDateSubmitted() {
+		return dateSubmitted;
 	}
 
-	public void setSubmitted(boolean submitted) {
-		this.submitted = submitted;
+	public void setDateSubmitted(String dateSubmitted) {
+		this.dateSubmitted = dateSubmitted;
 	}
 
-	public boolean isResolved() {
-		return resolved;
+	public String getDateResolved() {
+		return dateResolved;
 	}
 
-	public void setResolved(boolean resolved) {
-		this.resolved = resolved;
+	public void setDateResolved(String dateResolved) {
+		this.dateResolved = dateResolved;
 	}
 
 	public String getDescription() {
@@ -96,10 +99,36 @@ public class Reimb {
 		this.reciept = reciept;
 	}
 
-	@Override
-	public String toString() {
-		return "Reimbursement [amount=" + amount + ", submitted=" + submitted + ", resolved=" + resolved
-				+ ", description=" + description + ", reciept=" + reciept + "]";
+	public Users getSubmit() {
+		return submit;
+	}
+
+	public void setSubmit(Users submit) {
+		this.submit = submit;
+	}
+
+	public Users getResolve() {
+		return resolve;
+	}
+
+	public void setResolve(Users resolve) {
+		this.resolve = resolve;
+	}
+
+	public ReimbType getType() {
+		return type;
+	}
+
+	public void setType(ReimbType type) {
+		this.type = type;
+	}
+
+	public ReimbStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(ReimbStatus status) {
+		this.status = status;
 	}
 
 }

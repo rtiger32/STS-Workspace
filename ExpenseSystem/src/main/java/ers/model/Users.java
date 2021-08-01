@@ -27,6 +27,7 @@ public class Users {
 	@JoinColumn(name = "user_role", referencedColumnName = "user_role")
 	private UserRole role;
 
+
 	public Users(String fname, String lname, String uname, String password, String email) {
 		super();
 		this.fname = fname;
@@ -88,6 +89,13 @@ public class Users {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public UserRole getRole() {
+		return role;
+	}
+
+	public void setRole(UserRole role) {
+		this.role = role;
 	}
 
 	@Override

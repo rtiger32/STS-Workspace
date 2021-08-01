@@ -23,33 +23,42 @@ public class RequestDAO {
 		return rb;
 	}
 
-	public Reimb selectByName(int name) {
+	public List<Reimb> selectBySubmitName(String name) {
+		// View reimbursement requests of a specific employee
 		Session ses = HibernateUtil.getSession();
-		List<Reimb> user = ses
-				.createNativeQuery("SELECT * FROM ers_reimbursement WHERE Reinb_ID='" + name + "'", Reimb.class).list();
-		return user.get(0);
+		List<Reimb> rb = ses
+				.createNativeQuery("FROM ers_reimbursement WHERE user_submitted='" + name + "'", Reimb.class).list();
+		return rb;
 	}
-
-	public Reimb selectBynameHQL(boolean b) {
-
+	
+	public List<Reimb> selectUnresolved(String name) {
+		// View all pending requests of all employees
 		Session ses = HibernateUtil.getSession();
-		List<Reimb> user = ses.createNativeQuery("FROM ers_reimbursement WHERE submitted="+b,
-				Reimb.class).list();
-		return user.get(0);
+		List<Reimb> rb = ses
+				.createNativeQuery("FROM ers_reimbursement WHERE reimb_status='PENDING'", Reimb.class).list();
+		return rb;
 	}
+		public List<Reimb> selectResolved(String name) {
+			//View all resolved requests of all employees
+			Session ses = HibernateUtil.getSession();
+			List<Reimb> rb = ses
+					.createNativeQuery("FROM ers_reimbursement WHERE NOT reimb_status='PENDING'", Reimb.class).list();
+			return rb;
+	}
+	
 
-	public void update(Reimb user) {
+	public void update(Reimb rb) {
 
 		Session ses = HibernateUtil.getSession();
 		Transaction tx = ses.beginTransaction();
-		ses.update(user);
+		ses.update(rb);
 		tx.commit();
 	}
 
 	public List<Reimb> selectAll() {
-
+		//View all employees
 		Session ses = HibernateUtil.getSession();
-		List<Reimb> user = ses.createQuery("from ers_reimbursement", Reimb.class).list();
-		return user;
+		List<Reimb> rb = ses.createQuery("from ers_reimbursement", Reimb.class).list();
+		return rb;
 	}
 }

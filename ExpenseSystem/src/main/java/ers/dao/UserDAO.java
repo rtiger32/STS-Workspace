@@ -27,6 +27,13 @@ public class UserDAO {
 				.createNativeQuery("SELECT * FROM ers_users WHERE ers_username='" + name + "'", Users.class).list();
 		return user.get(0);
 	}
+	
+	public Users selectRole(String name) {
+		Session ses = HibernateUtil.getSession();
+		List<Users> user = ses
+				.createNativeQuery("SELECT user_role FROM ers_users WHERE ers_username='" + name + "'", Users.class).list();
+		return user.get(0);
+	}
 
 /*	public Users selectBynameHQL(String name) {
 

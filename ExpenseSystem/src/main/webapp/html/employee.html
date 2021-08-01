@@ -18,20 +18,27 @@
 	Current status of requests:
 	<hr>
 	<div id = 'reqstatus'>
-		show pending and resolved requests here
-		
+
 	</div>
 
 	</div>
 	<br>
-		Submit a new reimbursement request
+		<a href=newrequest.html><input type=button value="Submit a new reimbursement request:"></a><br><br>
 	<form id='request'>
 	<label for='username'>Amount of ERS request:</label> 
 	<input type='number'	name='request' maxlength='10' required id='request'
-		onkeypress="printPressed(event)" /> 
-		<label for='password'>Reason:</label> 
-	<input type='text' name='reason' id='reason' minlength='3'
-		required /> <input type='submit' value='submit' />
+		onkeypress="printPressed(event)" /> <br><br>
+		<div>
+		<label for='reason'>Reason:</label><br> 
+	<input type='radio' name='request' id='lodging'  required/>
+	<label for="lodging">Lodging</label><br>
+	<input type='radio' name='request' id='travel'  required/>
+	<label for="travel">Travel</label><br>
+	<input type='radio' name='request' id='food'   required/>
+	<label for="food">Food</label><br>
+	<input type='radio' name='request' id='other'   required/>
+	<label for="other">Other</label><br></div>
+	 <input type='submit' value='submit' />
 </form>
 <br>
 		view the account information

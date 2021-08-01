@@ -9,4 +9,48 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-</web-app>
+
+
+
+<servlet>
+<servlet-name>ers.servlet.LoginServlet</servlet-name>
+<servlet-class>LoginServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>LoginServlet</servlet-name>
+<url-pattern>/LoginServlet</url-pattern>
+</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>FormServlet</servlet-name>
+		<servlet-class>ers.servlet.FormServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>FormServlet</servlet-name>
+		<url-pattern>/html</url-pattern>
+	</servlet-mapping>
+
+ <servlet>
+  	<servlet-name>MasterViewServlet</servlet-name>
+  	<servlet-class>ers.servlet.MasterViewServlet</servlet-class>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>MasterViewServlet</servlet-name>
+  	<!-- We can use the * to specify multiple mappings -->
+  	<url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>MasterJSONServlet</servlet-name>
+  	<servlet-class>ers.servlet.MasterJSONServlet</servlet-class>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>MasterJSONServlet</servlet-name>
+  	<!-- We can use the * to specify multiple mappings -->
+  	<url-pattern>/api/*</url-pattern>
+  </servlet-mapping>
+  </web-app>

@@ -10,6 +10,6 @@ public class LoginView {
 		System.out.println(req.getContentType());
 		System.out.println("This should return the view login.html");
 		return "resources/html/login.html";
-		
+
 	}
 }
