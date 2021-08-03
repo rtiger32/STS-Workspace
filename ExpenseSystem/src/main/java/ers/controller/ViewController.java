@@ -1,30 +1,25 @@
 package ers.controller;
 
-import java.io.IOException;
-
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
 public class ViewController {
-	//JSON
-	
-	public static String fetchLoginPage(HttpServletRequest req) throws ServletException, IOException {
+
+	public static String fetchIndex(HttpServletRequest req) {
 		System.out.println(req.getContentType());
-		System.out.println("This should return the view index.html");
+		System.out.println("Return index.html");
 		return "resources/html/index.html";
 	}
-	
-	public static String fetchEmployeePage(HttpServletRequest req) throws ServletException, IOException {
+
+	public static String fetchEmployee(HttpServletRequest req) {
 		System.out.println(req.getContentType());
-		System.out.println("This should return the view Employee.html");
+		System.out.println("Return employee.html");
 		return "resources/html/employee.html";
-		
 	}
-	
-	public static String fetchManagerPage(HttpServletRequest req) throws ServletException, IOException {
+
+	public static String fetchManager(HttpServletRequest req) {
 		System.out.println(req.getContentType());
-		System.out.println("This should return the view Manager.html");
+		System.out.println("Return manager.html");
 		return "resources/html/manager.html";
 	}
-	
+
 }

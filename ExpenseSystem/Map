@@ -19,3 +19,15 @@ View all pending requests of all employees
 View all resolved requests of all employees
 View reimbursement requests of a specific employee
 View all employees
+
+
+Work on masters
+work on helpers
+work on the controllers
+Work with postman
+work with the JS
+
+
+So there are two sides to the masters. JSON for the back end, and View for the front end
+The JSON master calls the controllers
+The View master points to the HTML

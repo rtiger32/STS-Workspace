@@ -1,56 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
-  <display-name>ExpenseSystem</display-name>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>resources/html/index.html</welcome-file>
   </welcome-file-list>
-
-
-
-<servlet>
-<servlet-name>ers.servlet.LoginServlet</servlet-name>
-<servlet-class>LoginServlet</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>LoginServlet</servlet-name>
-<url-pattern>/LoginServlet</url-pattern>
-</servlet-mapping>
-
-
 	<servlet>
-		<servlet-name>FormServlet</servlet-name>
-		<servlet-class>ers.servlet.FormServlet</servlet-class>
+		<display-name>MasterView</display-name>
+		<servlet-name>MasterView</servlet-name>
+		<servlet-class>ers.servlet.MasterView</servlet-class>
+		<load-on-startup>1</load-on-startup>
 	</servlet>
-
 	<servlet-mapping>
-		<servlet-name>FormServlet</servlet-name>
-		<url-pattern>/html</url-pattern>
+		<servlet-name>MasterView</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<display-name>MasterJSON</display-name>
+		<servlet-name>MasterJSON</servlet-name>
+		<servlet-class>ers.servlet.MasterJSON</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MasterJSON</servlet-name>
+		<url-pattern>/api/*</url-pattern>
 	</servlet-mapping>
 
- <servlet>
-  	<servlet-name>MasterViewServlet</servlet-name>
-  	<servlet-class>ers.servlet.MasterViewServlet</servlet-class>
-  	<load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>MasterViewServlet</servlet-name>
-  	<!-- We can use the * to specify multiple mappings -->
-  	<url-pattern>/login</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>MasterJSONServlet</servlet-name>
-  	<servlet-class>ers.servlet.MasterJSONServlet</servlet-class>
-  	<load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>MasterJSONServlet</servlet-name>
-  	<!-- We can use the * to specify multiple mappings -->
-  	<url-pattern>/api/*</url-pattern>
-  </servlet-mapping>
-  </web-app>
+</web-app>

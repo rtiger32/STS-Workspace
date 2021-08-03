@@ -8,6 +8,10 @@ public class UserService {
 
 	private UserDAO udao;
 
+	public UserService() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Users signIn(String username, String password) {
 		
 			Users u = udao.selectByName(username);

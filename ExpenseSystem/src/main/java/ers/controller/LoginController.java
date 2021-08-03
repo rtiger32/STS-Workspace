@@ -5,25 +5,21 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import ers.dao.UserDAO;
 import ers.model.Users;
-import ers.service.UserService;
 
 public class LoginController {
 
-	private static UserDAO udao = new UserDAO();
-	private static UserService userv = new UserService();
-
-	public static void login(HttpServletRequest req, HttpServletResponse res)
-			throws JsonProcessingException, IOException {
+	public static void login(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		// TODO Auto-generated method stub
 
 		StringBuilder buffer = new StringBuilder();
 		BufferedReader reader = req.getReader();
+
 		String line;
 		while ((line = reader.readLine()) != null) {
 			buffer.append(line);
@@ -31,20 +27,26 @@ public class LoginController {
 		}
 
 		String data = buffer.toString();
+		System.out.println(data);
 		ObjectMapper mapper = new ObjectMapper();
 		JsonNode parsedObj = mapper.readTree(data);
 
 		String username = parsedObj.get("username").asText();
 		String password = parsedObj.get("password").asText();
 
-		try {
-			Users u = userv.signIn(username, password);
-			req.getSession().setAttribute("role", udao.selectRole(username));
-			res.setStatus(HttpServletResponse.SC_OK);
-			res.getWriter().write(new ObjectMapper().writeValueAsString(u));
-		} catch (Exception e) {
+		Validate v = new Validate();
+		Users u = v.checkUser(username, password);
+		if (u == null) {
 			res.setStatus(HttpServletResponse.SC_FORBIDDEN);
-			res.getWriter().println("Username or Password Incorrect");
+			res.getWriter().println("Username or Passsword incorrect");
+		} else {
+			res.setStatus(HttpServletResponse.SC_OK);
+
+			HttpSession session = req.getSession();
+			session.setAttribute("user", u);
+			
+			res.getWriter().write(new ObjectMapper().writeValueAsString(u));
 		}
 	}
+
 }

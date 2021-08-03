@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="../css/main.css">
+<link rel="icon" type="image/jpg" href="img/favicon.jpg">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Home</title>
+</head>
+<body>
+	<header>
+			<br><h2>Generic Expense Reimbursement System</h2>
+	<hr>
+	</header>
+	Welcome u.getfname() + " " + u.getLname
+	<hr>
+	<div >
+
+	<a href="RequestStatus.java"><input type="button" name = RequestStatus value="Current status of requests"></a>
+	<hr>
+	<div id = 'reqstatus'>
+
+	</div>
+
+	</div>
+	<br>
+		Submit a new reimbursement request:<br><br>
+	<form id='makeRequest' method = 'post'>
+	<label for='username'>Amount of ERS request:</label> 
+	<input type='number'	name='amount' maxlength='10' required id='request'
+		onkeypress="printPressed(event)" /> <br><br>
+		<div>
+		<label for='reason'>Reason:</label><br> 
+	<input type='radio' id='reason' value='lodging'  required/>
+	<label for="lodging">Lodging</label><br>
+	<input type='radio' id='reason' value='travel'  required/>
+	<label for="travel">Travel</label><br>
+	<input type='radio' id='reason' value='food'   required/>
+	<label for="food">Food</label><br>
+	<input type='radio' id='reason' value='other'   required/>
+	<label for="other">Other</label><br></div>
+	 <input id= 'newRequest' type='submit' value='submit' />
+</form>
+<br>
+		view the account information
+<script>
+		window.addEventListener("load", function() {
+			let element = document.createElement();
+			element.innerHTML = "x";
+			
+			document.getElementById("reqstatus")/appendChild(element);
+			
+			element = document.createElement('p');
+			element.innerHTML = " xx ";
+			document.body.appendChild(element);
+		});
+		</script>
+	
+</body>
+</html>
