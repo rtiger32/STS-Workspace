@@ -23,7 +23,10 @@ public class ReimbType {
 		super();
 	}
 
-
+	public ReimbType(ReimbTypeEnum type) {
+		super();
+		this.type = type;
+	}
 	
 
 

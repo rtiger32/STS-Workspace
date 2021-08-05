@@ -22,6 +22,15 @@ public class ReimbStatus{
 	public ReimbStatus() {
 		super();
 	}
+	
+	
+
+	public ReimbStatus(ReimbStatusEnum status) {
+		super();
+		this.status = status;
+	}
+
+
 
 	public ReimbStatusEnum getStatus() {
 		return status;

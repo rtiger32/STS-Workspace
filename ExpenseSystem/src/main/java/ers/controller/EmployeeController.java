@@ -29,13 +29,18 @@ public class EmployeeController {
 	private static Request rq = new Request();
 	
 	public static void newRequest(HttpServletRequest req, HttpServletResponse res) throws JsonProcessingException, IOException {
+		
 		HttpSession session = req.getSession();
-		Users u = (Users) session.getAttribute("user");
+		Users user = (Users) session.getAttribute("user");
+		
+		
 		if(req.getMethod().equals("GET")) {
-		//	List<Reimb> in = view.employeeAll(null)
-			res.getWriter().write(new ObjectMapper().writeValueAsString(view.employeeAll(u.getUname())));
+		System.out.println("EmployeeController: " + user);
+			System.out.println(view.employeeAll(user.getUname()));
+			res.getWriter().write(new ObjectMapper().writeValueAsString(view.employeeAll(user.getUname())));			
 		}
 	else {
+		System.out.println("EmployeeController: " + user);
 		//To read in stringified JSON data is a bit more complicated,
 		StringBuilder buffer = new StringBuilder();
 		BufferedReader reader = req.getReader();
@@ -50,18 +55,20 @@ public class EmployeeController {
 		ObjectMapper mapper = new ObjectMapper();
 		JsonNode parsedObj = mapper.readTree(data);
 		
-		double amount = Integer.parseInt(parsedObj.get("amount").asText());
-		String request = parsedObj.get("request").asText();
+		float amount = Float.parseFloat(parsedObj.get("amount").asText());
+		String type = parsedObj.get("type").asText();
+		String description = parsedObj.get("description").asText();
+		System.out.println(amount + " " + type + " " + description);
+		Reimb reimb = new Reimb(amount, description);
 		
-		Reimb entry = new Reimb(amount, request);
-		rdao.insert(entry);
-		
-		//pServ.addPost(userId, wallId, content);
-		
-		ObjectNode ret = mapper.createObjectNode();
-		ret.put("message", "successfully submitted a new reimbursment");
-		
-		res.getWriter().write(new ObjectMapper().writeValueAsString(ret));
+		try {
+		rq.submitRequest(user, reimb, type);
+		res.setStatus(HttpServletResponse.SC_OK);
+		} catch (Exception e) {
+			res.setStatus(HttpServletResponse.SC_FORBIDDEN);
+		return;
+		}
+		res.getWriter().println("successfully submitted a new reimbursment");		
 	}
 	
 }

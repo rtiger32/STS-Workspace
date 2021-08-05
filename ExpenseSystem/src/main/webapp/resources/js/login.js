@@ -13,7 +13,7 @@ async function login(e){
 		password
 	}
 	
-	console.log(user);
+	console.log(username);
 	
 	
 	try{
@@ -25,7 +25,7 @@ async function login(e){
 			body: JSON.stringify(user)
 		});
 		let res = await req.json();
-//		
+		
 //		if (res.userRole.EMPLOYEE) {
 //		location.href = 'resources/html/employee.html';
 //		} else if (res.userRole.MANAGER) {

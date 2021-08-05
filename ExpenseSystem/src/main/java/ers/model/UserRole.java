@@ -23,7 +23,13 @@ public class UserRole {
 		// TODO Auto-generated constructor stub
 	}
 
-	
+
+	public UserRole(UserRoleEnum role) {
+		super();
+		this.role = role;
+	}
+
+
 
 	public UserRoleEnum getRole() {
 		return role;

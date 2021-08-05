@@ -9,52 +9,54 @@
 </head>
 <body>
 	<header>
-			<br><h2>Generic Expense Reimbursement System</h2>
-	<hr>
+		<br>
+		<h2>Generic Expense Reimbursement System</h2>
+		<hr>
 	</header>
 	Welcome u.getfname() + " " + u.getLname
 	<hr>
-	<div >
+	<div>
 
-	<a href="RequestStatus.java"><input type="button" name = RequestStatus value="Current status of requests"></a>
-	<hr>
-	<div id = 'reqstatus'>
-
-	</div>
+		<!--  <a href="RequestStatus.java"><input type="button" name = RequestStatus value="Current status of requests"></a>-->
+		<hr>
+		<div id='reqstatus'></div>
 
 	</div>
+	<br> Submit a new reimbursement request:
 	<br>
-		Submit a new reimbursement request:<br><br>
-	<form id='makeRequest' method = 'post'>
-	<label for='username'>Amount of ERS request:</label> 
-	<input type='number'	name='amount' maxlength='10' required id='request'
-		onkeypress="printPressed(event)" /> <br><br>
+	<br>
+	<form id='makeRequest' method='post'>
+		<label for='username'>Amount of ERS request:</label> <input
+			type='number' step="0.01" min="20" name='amount' maxlength='8'
+			id='amount' required /> <br>
+		<br>
 		<div>
-		<label for='reason'>Reason:</label><br> 
-	<input type='radio' id='reason' value='lodging'  required/>
-	<label for="lodging">Lodging</label><br>
-	<input type='radio' id='reason' value='travel'  required/>
-	<label for="travel">Travel</label><br>
-	<input type='radio' id='reason' value='food'   required/>
-	<label for="food">Food</label><br>
-	<input type='radio' id='reason' value='other'   required/>
-	<label for="other">Other</label><br></div>
-	 <input id= 'newRequest' type='submit' value='submit' />
-</form>
-<br>
-		view the account information
-<script>
-		window.addEventListener("load", function() {
-			let element = document.createElement();
-			element.innerHTML = "x";
-			
-			document.getElementById("reqstatus")/appendChild(element);
-			
-			element = document.createElement('p');
-			element.innerHTML = " xx ";
-			document.body.appendChild(element);
-		});
-		</script>
-	
+			<label for='type'>Reason:</label><br> 
+			<input type='radio'id='type' value='lodging' required /> 
+			<label for="lodging">Lodging</label><br>
+			<input type='radio' id='type' value='travel' required /> 
+			<label for="travel">Travel</label><br>
+			<input type='radio' id='type' value='food' required /> 
+			<label for="food">Food</label><br> 
+			<input	type='radio' id='type' value='other' required /> 
+			<label for="other">Other</label><br>
+		</div>
+		<label for='description'>Please explain:</label><br>
+		<input type='text' id='description' width = 20 height = 3>
+		<input id='newRequest' type='submit' value='submit' />
+	</form>
+	<br> view the account information
+
+
+	<br>
+	<button onclick="logout()">Logout</button>
+	<script src="../js/employee.js"></script>
+	<script>
+		function logout() {
+			console.log("logout clicked");
+			location.href = 'index.html';
+		}
+	</script>
+
 </body>
 </html>

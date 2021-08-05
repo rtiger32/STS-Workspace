@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+
 public class MasterJSON extends HttpServlet {
 
 	/**
@@ -15,11 +17,13 @@ public class MasterJSON extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
+	
 		JSONHelper.process(req, res);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
+
 		JSONHelper.process(req, res);
 	}
 

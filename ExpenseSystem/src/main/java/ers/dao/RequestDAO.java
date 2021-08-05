@@ -35,8 +35,8 @@ public class RequestDAO {
 	public List<Reimb> selectUnresolved(String name) {
 		// View all pending requests of all employees
 		Session ses = HibernateUtil.getSession();
-		List<Reimb> rb = ses.createNativeQuery(
-				"FROM ers_reimbursement WHERE user_submitted='" + name + "' AND  reimb_status='PENDING'", Reimb.class)
+		List<Reimb> rb = ses.createQuery(
+				"FROM Reimb WHERE user_submitted='" + name + "' AND  reimb_status='PENDING'", Reimb.class)
 				.list();
 		return rb;
 	}
@@ -44,8 +44,8 @@ public class RequestDAO {
 	public List<Reimb> selectResolved(String name) {
 		// View all resolved requests of all employees
 		Session ses = HibernateUtil.getSession();
-		List<Reimb> rb = ses.createNativeQuery(
-				"FROM ers_reimbursement WHERE user_submitted='" + name + "' AND NOT reimb_status='PENDING'",
+		List<Reimb> rb = ses.createQuery(
+				"FROM Reimb WHERE user_submitted='" + name + "' AND NOT reimb_status='PENDING'",
 				Reimb.class).list();
 		return rb;
 	}
@@ -54,14 +54,14 @@ public class RequestDAO {
 		// View reimbursement requests of a specific employee
 		Session ses = HibernateUtil.getSession();
 		List<Reimb> rb = ses
-				.createNativeQuery("FROM ers_reimbursement WHERE user_submitted='" + name + "'", Reimb.class).list();
+				.createQuery("FROM Reimb WHERE user_submitted='" + name + "'", Reimb.class).list();
 		return rb;
 	}
 
 	public List<Reimb> selectUnresolved() {
 		// View all pending requests of all employees
 		Session ses = HibernateUtil.getSession();
-		List<Reimb> rb = ses.createNativeQuery("FROM ers_reimbursement WHERE reimb_status='PENDING'", Reimb.class)
+		List<Reimb> rb = ses.createQuery("FROM Reimb WHERE reimb_status='PENDING'", Reimb.class)
 				.list();
 		return rb;
 	}
@@ -69,7 +69,7 @@ public class RequestDAO {
 	public List<Reimb> selectResolved() {
 		// View all resolved requests of all employees
 		Session ses = HibernateUtil.getSession();
-		List<Reimb> rb = ses.createNativeQuery("FROM ers_reimbursement WHERE NOT reimb_status='PENDING'", Reimb.class)
+		List<Reimb> rb = ses.createQuery("FROM Reimb WHERE NOT reimb_status='PENDING'", Reimb.class)
 				.list();
 		return rb;
 	}
@@ -77,7 +77,7 @@ public class RequestDAO {
 	public List<Reimb> selectAll() {
 		// View all employees requests
 		Session ses = HibernateUtil.getSession();
-		List<Reimb> rb = ses.createQuery("from ers_reimbursement", Reimb.class).list();
+		List<Reimb> rb = ses.createQuery("from Reimb", Reimb.class).list();
 		return rb;
 	}
 }

@@ -54,7 +54,13 @@ public class Reimb {
 		this.dateSubmitted = date;
 		this.description = description;
 	}
-
+	public Reimb(double amount) {
+		super();
+		String date = new Date().toString();
+		this.amount = amount;
+		this.dateSubmitted = date;
+	}
+	
 	public Reimb() {
 		super();
 	}
